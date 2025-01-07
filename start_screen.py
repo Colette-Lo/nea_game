@@ -1,4 +1,4 @@
-# Using the library tkinter to create the user interfaces.
+# Using the library tkinter to create user interfaces.
 import tkinter as tk
 
 # Start screen
@@ -14,12 +14,11 @@ game_title = tk.Label(window, text="Country Simulation", font=('Arial', 40))
 game_title.pack(padx=10, pady=200)
 
 # Create the start button. The user clicks it if they want to start playing.
-start_button = tk.Button(window, text="Start", font=('Arial', 25))
+start_button = tk.Button(window, text="Start", font=('Arial', 25), command=action)
 start_button.pack()
 
+# For action:
+# If this is the first time playing the game, go to initial set up.
+# If not, go straight to the home page.
+
 window.mainloop()
-
-
-
-
-
