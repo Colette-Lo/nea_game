@@ -1,4 +1,7 @@
 import tkinter as tk
+from gettext import textdomain
+
+from PIL import Image, ImageTk
 
 # Initial country setup screen
 # Create the window
@@ -24,6 +27,12 @@ name_tb.pack(padx=10, pady=10, anchor="w")
 flag_heading =  tk.Label(window, text="Flag:", font=('Arial', 20))
 flag_heading.pack(padx=10, pady=10, anchor="w")
 
+# Importing images
+flag_image1 = Image.open("flag1.png")
+flag_image2 = ImageTk.PhotoImage(flag_image1)
+
+flag1_label = tk.Label(window,image = flag_image2)
+flag1_label.pack()
 window.mainloop()
 
 
