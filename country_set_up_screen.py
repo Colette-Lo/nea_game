@@ -1,6 +1,4 @@
 import tkinter as tk
-from gettext import textdomain
-from lib2to3.pygram import pattern_symbols
 from tkinter import PhotoImage
 from PIL import Image, ImageTk
 
