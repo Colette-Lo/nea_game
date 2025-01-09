@@ -49,7 +49,7 @@ button1 = tk.Radiobutton(window,
                          font=('Arial', 20))
 button1.pack(padx=10, side="left")
 
-open_flag1 = Image.open("C:/Users/colet/OneDrive/Desktop/flag1.png")
+open_flag1 = Image.open("C:/Users/colet/OneDrive/Desktop/flag_1.png")
 flag1_photo = ImageTk.PhotoImage(open_flag1)
 flag1_lbl = tk.Label(window, image = flag1_photo)
 flag1_lbl.pack(padx=10, side="left")
@@ -60,7 +60,7 @@ button2 = tk.Radiobutton(window,
                           font=('Arial', 20))
 button2.pack(padx=10, side="left")
 
-open_flag2 = Image.open("C:/Users/colet/OneDrive/Desktop/flag2.png")
+open_flag2 = Image.open("C:/Users/colet/OneDrive/Desktop/flag_2.png")
 flag2_photo = ImageTk.PhotoImage(open_flag2)
 flag2_lbl = tk.Label(window, image = flag2_photo)
 flag2_lbl.pack(padx=10, side="left")
@@ -71,7 +71,7 @@ button3 = tk.Radiobutton(window,
                          font=('Arial', 20))
 button3.pack(padx=10, side="left")
 
-open_flag3 = Image.open("C:/Users/colet/OneDrive/Desktop/flag3.png")
+open_flag3 = Image.open("C:/Users/colet/OneDrive/Desktop/flag_3.png")
 flag3_photo = ImageTk.PhotoImage(open_flag3)
 flag3_lbl = tk.Label(window, image = flag3_photo)
 flag3_lbl.pack(padx=10, pady=10, side="left")
