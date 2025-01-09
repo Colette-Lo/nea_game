@@ -1,7 +1,6 @@
 import tkinter as tk
-from multiprocessing.util import sub_debug
 
-#Scenario screen where the player choose a policy
+# Scenario screen where the player choose a policy
 # Create the window
 window = tk.Tk()
 
