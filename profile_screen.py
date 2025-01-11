@@ -1,6 +1,6 @@
 import tkinter as tk
+from tkinter import ttk
 from tkinter import image_names
-
 
 # Country profile
 # Make the window
@@ -18,12 +18,48 @@ page_heading = tk.Label(window,
 page_heading.pack(padx=30, pady=30, anchor="w")
 
 # Flag
-# country_flag = image file of the flag the player has selected
-# country_flag = open image file
-# flag_label = tk.Label(window, country_flag)
-# flag_label.pack(anchor="w")
+# The procedure for displaying the chosen flag will be here
+# when the algorthm for user choosing a flag is added to the set-up screen later.
 
 # Name label
+name_heading =  tk.Label(window,
+                         text="Name: ",
+                         font=('Arial', 30),
+                         bg="white"
+                         )
+name_heading.pack(padx=10, pady=10, anchor="w")
 
+# Population label
+name_heading =  tk.Label(window,
+                         text="Population: ",
+                         font=('Arial', 30),
+                         bg="white"
+                         )
+name_heading.pack(padx=10, pady=10, anchor="w")
+
+# Table of metrics
+indicators = ['Life expectancy', 'Literacy rate', 'Happiness index', 'Inflation rate', 'Unemployment rate', 'GDP']
+data= ['', '', '', '', '', '']
+# data will be values for the indicators when calculations are implemented later.
+
+# Create the table, name the columns
+table = ttk.Treeview(window, columns=('Indicators', 'Values'), show='headings')
+
+# Add headings to the table
+table.heading('Indicators', text='Indicators')
+table.heading('Values', text='Values')
+
+table.pack(anchor='e', padx=100)
+
+# Insert values into the table
+for i in range(6):
+    indicator = indicators[i]
+    value = data[i]
+    table.insert(parent = '', index = 0, values = (indicator, value))
 
 window.mainloop()
+
+
+
+
+
