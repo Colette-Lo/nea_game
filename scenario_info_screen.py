@@ -1,6 +1,6 @@
 import tkinter as tk
 
-# Scenario screen where the player choose a policy
+# Where the context of the historical event is displayed.
 # Create the window
 window = tk.Tk()
 
