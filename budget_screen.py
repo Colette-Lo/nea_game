@@ -1,5 +1,4 @@
 import tkinter as tk
-import matplotlib as plt
 
 # The screen where spending and income is displayed.
 # Create window
@@ -21,7 +20,7 @@ page_heading.pack(padx=10, anchor='w')
 
 # Bar chart
 # Chart dimensions
-canvas_width = 500
+canvas_width = 600
 canvas_height = 300
 bar_width = 55
 bar_spacing = 20
@@ -29,12 +28,12 @@ top_margin = 30
 
 # Create canvas
 #def draw_chart(canvas, data):
-# canvas = tk.Canvas(window,
-#                    width=canvas_width,
-#                    height=canvas_height,
-#                    bg="white"
-#                    )
-# canvas.pack(side='left', fill='y')
+canvas = tk.Canvas(window,
+                   width=canvas_width,
+                   height=canvas_height,
+                   bg="white"
+                   )
+canvas.pack(side='left', fill='y')
 
 # need data to create bars.
 
@@ -62,3 +61,5 @@ spending_section.pack(padx=10, pady=10, anchor="e")
 
 
 window.mainloop()
+
+
