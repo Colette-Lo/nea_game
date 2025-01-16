@@ -57,6 +57,15 @@ spending_section =  tk.Label(window,
                         )
 spending_section.pack(padx=10, pady=10, anchor="e")
 
+# National debt label
+debt_lbl =  tk.Label(window,
+                        text="National debt:",
+                        font=('Arial', 20),
+                        bg="white",
+                        width=50
+                        )
+debt_lbl.pack(padx=10, pady=10, anchor="e")
+
 # Education stepper
 
 
