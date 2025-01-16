@@ -30,7 +30,7 @@ products = []
 price = []
 sold = []
 
-# data will be values for the indicators when calculations are implemented later.
+# data will show when calculations are implemented later.
 
 # Create the table, name the columns
 table = ttk.Treeview(window, columns=('Product', 'Price', 'Sold'), show='headings')

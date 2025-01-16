@@ -1,5 +1,4 @@
 import tkinter as tk
-from idlelib.configdialog import font_sample_text
 from tkinter import ttk
 
 # News screen to show the effect of the policy chosen.
@@ -23,28 +22,28 @@ page_heading.pack(padx=10, pady=20)
 # Create a notebook widget
 tab_control = ttk.Notebook(window)
 
-# Create two tabs
-tab1 = ttk.Frame(tab_control)
-tab2 = ttk.Frame(tab_control)
+# A procedure to make a tab.
+def make_tabs(tab_name, text_title):
+    tab = ttk.Frame(tab_control)
+    # Add tab name
+    tab_control.add(tab, text=tab_name)
+    tab_control.pack(expand=1, fill="both")
 
-# Add tabs to notebook
-tab_control.add(tab1,
-                text="News 1")
-tab_control.add(tab2,
-                text="News 2")
+    # Add tab title
+    ttk.Label(tab, text=text_title).grid(column=0,
+                                       row=0,
+                                       padx=30,
+                                       pady=30
+                                       )
 
-tab_control.pack(expand=1, fill="both")
+# Make two tabs
+tab1 = "News 1"
+news_title1 = ""
+make_tabs(tab1, news_title1)
 
-# News tab titles
-ttk.Label(tab1, text="Title").grid(column=0,
-                                   row=0,
-                                   padx=30,
-                                   pady=30
-                                   )
-ttk.Label(tab2, text="Title").grid(column=0,
-                                   row=0,
-                                   padx=30,
-                                   pady=30)
+tab2 = "News 2"
+news_title2 = ""
+make_tabs(tab2, news_title2)
 
 window.mainloop()
 
