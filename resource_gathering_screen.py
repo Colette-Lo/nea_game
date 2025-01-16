@@ -31,7 +31,7 @@ def make_tabs(tab_name, op_time, op_efficiency, op_total_output, image_link):
     # Image
     open_image = Image.open(image_link)
     mat_photo = ImageTk.PhotoImage(open_image)
-    mat_photo_lbl = tk.Label(window, image=mat_photo)
+    mat_photo_lbl = ttk.Label(window, image=mat_photo)
     mat_photo_lbl.pack(padx=10, side="right")
 
     # Additional labels and buttons for displaying information of the raw materials.
