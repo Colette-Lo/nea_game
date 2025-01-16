@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
+from matplotlib.font_manager import fontManager
+
 # Create window
 window = tk.Tk()
 window.geometry("1920x1080")
@@ -26,9 +28,9 @@ production_button.pack(anchor='w')
 
 
 # Trade table
-products = []
-price = []
-sold = []
+products_list = []
+price_list = []
+sold_list = []
 
 # data will show when calculations are implemented later.
 
@@ -40,14 +42,14 @@ table.heading('Product', text='Product')
 table.heading('Price', text='Price')
 table.heading('Sold', text='Sold')
 
-table.pack(anchor='e', padx=100)
+table.pack(anchor='e', padx=100, expand=True, fill='both')
 
 # Insert values into the table
-for i in range(6):
-    product = products[i]
-    price = price[i]
-    sold = sold[i]
-    table.insert(parent = '', index = 0, values = (products, price, sold))
+for i in range(len(products_list)-1):
+    product = products_list[i]
+    price = price_list[i]
+    sold = sold_list[i]
+    table.insert(parent = '', index = 0, values = (product, price, sold))
 
 window.mainloop()
 
