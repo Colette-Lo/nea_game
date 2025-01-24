@@ -110,10 +110,40 @@ from screens import Screen
 class HomePageScreen(Screen):
     def __init__(self):
         super().__init__()
-        self.prof_button = tk.Button(window,
+
+        self.prof_button = tk.Button(self,
                           text="Profile",
                           font=('Arial', 20),
                           width=10,
                           height=2
                           )
+        self.prof_button.pack(anchor='w')
 
+        # Using a frame as a menu bar.
+        self.menu_frame = tk.Frame(self)
+        self.menu_frame.columnconfigure(0, weight=1)
+
+        # List of instances from each screen class.
+        self.menu_items = [["Resources"],
+                           ["Trade & Production"],
+                           ["Technology"],
+                           ["Firms"],
+                           ["Budget"],
+                           ["Resource gathering"]
+                           ]
+
+        # Map image
+        self.map_image_path = "C:/Users/colet/OneDrive/Desktop/game_map.png"
+
+        # Button to scenarios
+        self.scenario_button = tk.Button(self,
+                                         text="Scenarios",
+                                         font=('Arial', 20),
+                                         width=10,
+                                         height=2
+                                         )
+        self.scenario_button.pack(anchor='w')
+
+
+try_screen = HomePageScreen()
+try_screen.mainloop()

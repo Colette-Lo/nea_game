@@ -151,6 +151,3 @@ class SetUpCountryScreen(Screen):
 
     def save_choice(self):
         pass
-
-try_screen = SetUpCountryScreen()
-try_screen.mainloop()
