@@ -144,6 +144,3 @@ class HomePageScreen(Screen):
                                          )
         self.scenario_button.pack(anchor='w')
 
-
-try_screen = HomePageScreen()
-try_screen.mainloop()
