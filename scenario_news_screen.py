@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from screens import Screen
+from tab_method import CreateNotebook
 
 # # News screen to show the effect of the policy chosen.
 # # Create the window
@@ -50,7 +51,7 @@ from screens import Screen
 #
 
 class ScenarioNewsScreen(Screen):
-    def __init__(self):
+    def __init__(self ):
         super().__init__()
         self.heading = tk.Label(self,
                                 text="News",
@@ -64,9 +65,11 @@ class ScenarioNewsScreen(Screen):
         self.geometry("700x500")
 
         self.news_lists = []
-        # this list will be filled with ALL the news for ALL scenarios
-        # probs import from json directly\
-        # needs to check the og news class
+        # this list will be filled with all the news for all possible scenarios.
 
-    def news_tabs(self):
-        pass
+        self.trynote = CreateNotebook()
+        self.trynote.add_tab('news1', "Example title", "Example content")
+        self.trynote.add_tab('news2', 'hi', "idk")
+
+trynewsscreen = ScenarioNewsScreen()
+trynewsscreen.mainloop()

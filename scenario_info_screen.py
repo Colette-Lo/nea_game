@@ -42,7 +42,7 @@ from screens import Screen
 ## with this being said all the other possible cases and their values do not acc matter
 ## until its their turn to show up.
 
-class ScenerioInfoScreen(Screen):
+class ScenarioInfoScreen(Screen):
     def __init__(self, context_info):
         super().__init__()
         self.title("Information Box")
@@ -62,3 +62,6 @@ class ScenerioInfoScreen(Screen):
                                     bg="white",
                                     width=20
                                     )
+        self.description.pack(padx=10, pady=30)
+
+

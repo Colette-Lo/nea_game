@@ -1,20 +1,20 @@
 import tkinter as tk
-from imghdr import tests
-from tkinter import Image
-from traceback import print_tb
-
-from PIL import ImageTk
-
 
 # Store all the screens
-class MainApp(tk.Tk):# Using tk.Tk() as a parent class.
-    def __init__(self):
-        super.__init__() # Initialise the parent class, tk.Tk() which creates the window automatically.
-        self.container = tk.Frame(self)
-        self.frames = {}
+# class MainApp(tk.Tk):# Using tk.Tk() as a parent class.
+#     def __init__(self):
+#         super.__init__() # Initialise the parent class, tk.Tk() which creates the window automatically.
+#         self.container = tk.Frame(self)
+#         self.frames = {}
+#
+#     def show_frame(self, screen):
+#         pass
 
-    def show_frame(selfscreen):
-        pass
+## Solution for changing screens:
+## store screens using a tree
+## use traversal algorithms to track what screens have been opened
+## possibly a stack to pop back to the previous screens.
+## task for milestone 2
 
 # Basic attributes and methods for each screen.
 class Screen(tk.Tk):

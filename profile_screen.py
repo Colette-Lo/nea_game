@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
-from tkinter import image_names
+from tkinter import PhotoImage
+from PIL import Image, ImageTk
 from screens import Screen
 
 # # Country profile
@@ -61,7 +62,7 @@ from screens import Screen
 # window.mainloop()
 
 class ProfileScreen(Screen):
-    def __init__(self, name, population_size, indicators_values):
+    def __init__(self, name, flag_path,  population_size, indicators_values):
         super().__init__()
         self.heading = tk.Label(self,
                                 text="Profile",
@@ -78,6 +79,9 @@ class ProfileScreen(Screen):
                                  )
         self.country_name.pack(padx=10, pady=10, anchor="w")
 
+        # Need to add attribute to class diagram
+        self.flag_image_path = flag_path
+
         self.pop_size =  tk.Label(self,
                                  text="Population: " + population_size,
                                  font=('Arial', 30),
@@ -93,6 +97,15 @@ class ProfileScreen(Screen):
                                       show='headings'
                                       )
 
+    # Display flag.
+    # Need to add method to class diagram for ProfileScreen.
+    def show_flag(self):
+        open_flag = Image.open(self.flag_image_path)
+        flag_file = ImageTk.PhotoImage(open_flag)
+        flag_lbl = tk.Label(self, image=flag_file)
+        flag_lbl.pack(fill='both', expand=True)
+    ## have not tested ##
+
     def insert_values(self):
         self.ind_table.heading('Indicators', text='Indicators')
         self.ind_table.heading('Values', text='Values')
@@ -104,3 +117,4 @@ class ProfileScreen(Screen):
             indicator = self.indicators[i]
             value = self.values[i]
             self.ind_table.insert(parent = '', index = 0, values = (indicator, value))
+
