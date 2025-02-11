@@ -1,7 +1,6 @@
 import tkinter as tk
-import numpy as mp
 import matplotlib.pyplot as plt
-from screens import Screen
+import numpy as np
 # need to import numpy and matplotlib.pyplot
 
 #
@@ -151,11 +150,13 @@ class BudgetScreen(Screen):
                               )
         self.education_stepper.pack(padx=10, pady=10, anchor='s')
 
-        self.bar_chart_data = [[], []]  ## [x[], y[]]
+        self.pie_chart_data = []
 
 
-    def make_bar_chart(self):
-        pass
+    def make_pie_chart(self):
+        plt.pie(self.pie_chart_data,)
+        plt.show()
+
 
     def stepper_change(self):
         pass
