@@ -72,49 +72,63 @@ class ProfileScreen(Screen):
                                 )
         self.heading.pack(padx=30, pady=30, anchor="w")
 
-        self.country_name =  tk.Label(self,
-                                 text="Name: " + name,
-                                 font=('Arial', 30),
-                                 bg="white"
-                                 )
-        self.country_name.pack(padx=10, pady=10, anchor="w")
-
-        # Need to add attribute to class diagram
-        self.flag_image_path = flag_path
-
-        self.pop_size =  tk.Label(self,
-                                 text="Population: " + population_size,
-                                 font=('Arial', 30),
-                                 bg="white"
-                                 )
-        self.pop_size.pack(padx=10, pady=10, anchor="w")
-
-        self.indicators = ['Life expectancy', 'Literacy rate', 'Happiness index', 'Inflation rate', 'Unemployment rate', 'GDP']
+        # indicators table
+        self.indicators = ['Life expectancy', 'Literacy rate', 'Happiness index', 'Inflation rate', 'Unemployment rate',
+                           'GDP']
         self.values = indicators_values
 
         self.ind_table = ttk.Treeview(self,
                                       columns=('Indicators', 'Values'),
-                                      show='headings'
+                                      show='headings',
+                                      height = 6
                                       )
+        self.insert_values()
+
+        # flag
+        self.flag_image_path = flag_path
+        self.keep_flag = []
+        self.show_flag()
+
+
+        # country name
+        self.country_name = tk.Label(self,
+                                     text="Name: " + name,
+                                     font=('Arial', 40),
+                                     bg="white"
+                                     )
+        self.country_name.pack(padx = 10, pady = 10, anchor="w")
+
+        # population
+        self.pop_size =  tk.Label(self,
+                                 text="Population: " + population_size,
+                                 font=('Arial', 40),
+                                 bg="white"
+                                 )
+        self.pop_size.pack(padx = 10, pady = 10, anchor="w")
+
+
 
     # Display flag.
     # Need to add method to class diagram for ProfileScreen.
     def show_flag(self):
         open_flag = Image.open(self.flag_image_path)
         flag_file = ImageTk.PhotoImage(open_flag)
-        flag_lbl = tk.Label(self, image=flag_file)
-        flag_lbl.pack(fill='both', expand=True)
+
+        self.keep_flag.append(flag_file)
+
+        flag_lbl = tk.Label(self, image=flag_file, width = 400, height = 400)
+        flag_lbl.pack(expand=False, anchor="w")
     ## have not tested ##
 
     def insert_values(self):
         self.ind_table.heading('Indicators', text='Indicators')
         self.ind_table.heading('Values', text='Values')
 
-        self.ind_table.pack(anchor='e', padx=100)
+        self.ind_table.pack(side=tk.RIGHT, padx = 20, fill = 'x')
 
         # Insert values into the table
         for i in range(6):
-            indicator = self.indicators[i]
-            value = self.values[i]
-            self.ind_table.insert(parent = '', index = 0, values = (indicator, value))
+            self.ind_table.insert(parent = '', index = 0, values = (self.indicators[i], self.values[i]))
 
+tryscreen = ProfileScreen("nhk", "C:/Users/colet/OneDrive/Desktop/flag_1.png", "12345", [12, 123, 1234, 123, 1234, 1234])
+tryscreen.mainloop()

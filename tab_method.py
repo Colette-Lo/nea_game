@@ -31,3 +31,9 @@ class CreateNotebook(ttk.Notebook):
     #                                            padx=30,
     #                                            pady=30
     #                                            )
+
+# make a treeview idk
+class CreateTreeview(ttk.Treeview):
+    def __init__(self):
+        ttk.Treeview.__init__(self)
+        pass

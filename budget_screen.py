@@ -152,11 +152,9 @@ class BudgetScreen(Screen):
         self.education_stepper.pack(padx=10, pady=10, anchor='s')
 
         self.bar_chart_data = [[], []]  ## [x[], y[]]
+
+
     def make_bar_chart(self):
-        x = []
-        y = []
-        plt.bar(x,y)
-        plt.show()
         pass
 
     def stepper_change(self):
