@@ -147,14 +147,6 @@ class SetUpCountryScreen(Screen):
             # flag_lbl.pack(padx=10, side="left")
 
 
-    ### not needed. just use get().
-
-    ## get name input by player
-    # def get_name_input(self):
-    #     return self.name_box.get()
-
-    ###
-
     def verify_name(self):
         player_name = self.name_box.get()
         if player_name != "":

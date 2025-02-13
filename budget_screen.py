@@ -1,5 +1,6 @@
 import tkinter as tk
 import matplotlib.pyplot as plt
+from screens import Screen
 import numpy as np
 # need to import numpy and matplotlib.pyplot
 
@@ -95,7 +96,7 @@ import numpy as np
 #
 
 class BudgetScreen(Screen):
-    def __init__(self):
+    def __init__(self, tax_value, spending_value, debt_value):
         super().__init__()
         page_heading = tk.Label(self,
                                 text="Budget",
@@ -150,11 +151,11 @@ class BudgetScreen(Screen):
                               )
         self.education_stepper.pack(padx=10, pady=10, anchor='s')
 
-        self.pie_chart_data = []
+        self.pie_chart_data = [tax_value, spending_value]
 
 
     def make_pie_chart(self):
-        plt.pie(self.pie_chart_data,)
+        plt.pie(self.pie_chart_data)
         plt.show()
 
 
