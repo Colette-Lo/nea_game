@@ -109,43 +109,83 @@ class SetUpCountryScreen(Screen):
         self.flag_heading.pack(padx=10, pady=10, anchor="w")
 
         # Flag options
-        self.list_of_flags = [["Flag 1", "C:/Users/colet/OneDrive/Desktop/flag_1.png"],
-                              ["Flag 2", "C:/Users/colet/OneDrive/Desktop/flag_2.png"],
-                              ["Flag 3", "C:/Users/colet/OneDrive/Desktop/flag_3.png"]
-                              ]
-        self.radio_buttons = [["Flag 1"], ["Flag 2"], ["Flag 3"]]
+        # self.list_of_flags = [["Flag 1", "C:/Users/colet/OneDrive/Desktop/flag_1.png"],
+        #                       ["Flag 2", "C:/Users/colet/OneDrive/Desktop/flag_2.png"],
+        #                       ["Flag 3", "C:/Users/colet/OneDrive/Desktop/flag_3.png"]
+        #                       ]
         self.image_reference = []
-        self.var = tk.StringVar()
+
         # Button to confirm choices.
         self.save_button = tk.Button(self, text="Save", font=('Arial', 20), command=self.save_choice)
 
-        for i in range(len(self.list_of_flags)):
-            # Open image
-            open_flag = Image.open(self.list_of_flags[i][1])
-            flag_photo = ImageTk.PhotoImage(open_flag)
+        self.flag_1 = "C:/Users/colet/OneDrive/Desktop/flag_1.png"
+        self.flag_2 = "C:/Users/colet/OneDrive/Desktop/flag_2.png"
+        self.flag_3 = "C:/Users/colet/OneDrive/Desktop/flag_3.png"
 
-            # Store image permanently.
-            self.image_reference.append(flag_photo)
+        # for i in range(len(self.list_of_flags)):
+        #     # Open image
+        #     open_flag = Image.open(self.list_of_flags[i][1])
+        #     flag_photo = ImageTk.PhotoImage(open_flag)
+        #
+        #     # Store image permanently.
+        #     self.image_reference.append(flag_photo)
+        #
+        #     # when the radiobutton is turned on by the player, variable is set to the current value option.
+        #     # value can be returned in chose_flag().
+        #     # use as the index of the flag in list of flags.
+        #     # result: does not work.
+        #
+        #     # radio_btn = tk.Radiobutton(self,
+        #     #                            text=self.radio_buttons[i],
+        #     #                            font=('Arial', 20)
+        #     #                            )
+        #     # radio_btn.pack(padx=10, side="left")
+        #
+        #     ## label for the images
+        #     flag_lbl = tk.Label(self, image=flag_photo)
+        #     flag_lbl.pack(padx=10, side="left")
 
-            # when the radiobutton is turned on by the player, variable is set to the current value option.
-            # value can be returned in chose_flag().
-            # use as the index of the flag in list of flags.
-            # result: does not work.
+        self.var = tk.IntVar()
+        # Flag 1
+        self.radio_button_1 = tk.Radiobutton(self,
+                                 text="Flag 1",
+                                 font=('Arial', 20),
+                                 variable=self.var,
+                                 value=1)
+        self.radio_button_1.pack(padx=10, side="left")
 
-            radio_btn = tk.Radiobutton(self,
-                                       text=self.radio_buttons[i],
-                                       image=self.image_reference[i],
-                                       font=('Arial', 20),
-                                       command=self.chose_flag(),
-                                       variable=self.var,
-                                       value=self.list_of_flags[i][0]
-                                       )
-            radio_btn.pack(padx=10, side="left")
+        self.open_flag1 = Image.open(self.flag_1)
+        self.flag1_photo_obj = ImageTk.PhotoImage(self.open_flag1)
+        self.flag1_lbl = tk.Label(self, image = self.flag1_photo_obj)
+        self.flag1_lbl.pack(padx=10, side="left")
 
-            ## label for the images
-            # flag_lbl = tk.Label(self, image=flag_photo)
-            # flag_lbl.pack(padx=10, side="left")
+        # Flag 2
+        self.radio_button_2 = tk.Radiobutton(self,
+                                  text="Flag 2",
+                                  font=('Arial', 20),
+                                  variable=self.var,
+                                  value=2)
+        self.radio_button_2.pack(padx=10, side="left")
 
+        self.open_flag2 = Image.open(self.flag_2)
+        self.flag2_photo_obj = ImageTk.PhotoImage(self.open_flag2)
+        self.flag2_lbl = tk.Label(self, image = self.flag2_photo_obj)
+        self.flag2_lbl.pack(padx=10, side="left")
+
+        # Flag 3
+        self.radio_button_3 = tk.Radiobutton(self,
+                                 text="Flag 3",
+                                 font=('Arial', 20),
+                                 variable=self.var,
+                                 value=3)
+        self.radio_button_3.pack(padx=10, side="left")
+
+        self.open_flag3 = Image.open(self.flag_3)
+        self.flag3_photo_obj = ImageTk.PhotoImage(self.open_flag3)
+        self.flag3_lbl = tk.Label(self, image = self.flag3_photo_obj)
+        self.flag3_lbl.pack(padx=10, pady=10, side="left")
+
+        self.save_button.pack()
 
     def verify_name(self):
         player_name = self.name_box.get()
@@ -166,17 +206,21 @@ class SetUpCountryScreen(Screen):
 
     ## error: var
     def chose_flag(self):
-        print(self.var.get())
-        chosen_flag_path = self.list_of_flags[int(self.var.get())]
-        return chosen_flag_path
+        while self.var.get() != 0:
+            if self.var.get() == 1:
+                new_flag = self.flag_1
+            elif self.var.get() == 2:
+                new_flag = self.flag_2
+            else:
+                new_flag = self.flag_3
+            return new_flag
+    #     print(self.var.get())
+    #     chosen_flag_path = self.list_of_flags[int(self.var.get())]
+    #     return chosen_flag_path
 
     def save_choice(self):
         new_name = self.set_name()
         new_flag_object = self.chose_flag()
-
-        if new_name != "" and new_flag_object != "":
-            return [new_name, new_flag_object]
-
-
-tryscreen2 = SetUpCountryScreen()
-tryscreen2.mainloop()
+        self.destroy()
+        print([new_name, new_flag_object])
+        return [new_name, new_flag_object]

@@ -1,6 +1,7 @@
 import tkinter as tk
 from screens import Screen
-
+from country_set_up_screen import SetUpCountryScreen
+from home_page import HomePageScreen
 
 # Start screen
 # Create the window for the start screen.
@@ -49,17 +50,31 @@ class StartScreen(Screen):
                          font=('Arial', 30),
                          width=10,
                          bg="white",
-                         fg="red"
+                         fg="red",
+                         command=self.click_start
                          )
         self.start.pack()
 
         self.is_first = True
 
     def click_start(self):
-        pass
+        if self.is_first:
+            self.is_first = False
+            self.load_setup()
+            self.destroy()
+            initial_setup_screen = SetUpCountryScreen()
+            initial_setup_screen.mainloop()
+        else:
+            self.destroy()
+            #load save from file
+            home_page = HomePageScreen()
+            home_page.mainloop()
 
     def load_setup(self):
         pass
 
     def load_save(self, ex_file):
         pass
+
+my_start = StartScreen()
+my_start.mainloop()

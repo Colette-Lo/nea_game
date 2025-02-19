@@ -145,7 +145,7 @@ class HomePageScreen(Screen):
         self.scenario_button.pack(anchor="w")
 
         #List of instances from each screen class.
-        self.menu_items = ["Profile", "Resources", "Trade & Production", "Technology", "Firms", "Budget", "Resource gathering"]
+        self.menu_items = ["Profile", "Trade", "Technology", "Production", "Budget", "Resource gathering"]
         self.show_menu()
 
         # Map image
@@ -184,6 +184,6 @@ class HomePageScreen(Screen):
 
 ### tested. ####
 ## made an alternative method for the menu bar just in case ##
-
-home_screen = HomePageScreen()
-home_screen.mainloop()
+##### CHANGE SCREENSHOTS FOR MILESTONE 1
+##### THERE IS NO RESOURCE SCREEN WHY DID YOU ADD RESOURCES TO THE LIST
+##### THERE IS ALSO NO FIRMS. JUST TRADE, AND PRODUCTION. THEY ARE SEPARATED.

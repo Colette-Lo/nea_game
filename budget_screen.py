@@ -189,9 +189,6 @@ class BudgetScreen(Screen):
         # plotting the pie chart
         ax.pie(pie_chart_data, labels=pie_labels, startangle=90, shadow=True)
 
-        # ax.show()
-        ## does not need show(). add to report how this mistake was fixed.
-
         # creating the Tkinter canvas containing the Matplotlib figure
         canvas = FigureCanvasTkAgg(fig, master=self.pie_frame)
 
@@ -204,5 +201,5 @@ class BudgetScreen(Screen):
     def stepper_change(self):
         pass
 
-trybudget = BudgetScreen(30000, 100000, 20000, 5)
+trybudget = BudgetScreen(30000, 100000, 20000)
 trybudget.mainloop()

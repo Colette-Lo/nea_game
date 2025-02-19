@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, Frame
+
 
 class CreateNotebook(ttk.Notebook):
     def __init__(self):
@@ -33,7 +34,9 @@ class CreateNotebook(ttk.Notebook):
     #                                            )
 
 # make a treeview idk
-class CreateTreeview(ttk.Treeview):
-    def __init__(self):
-        ttk.Treeview.__init__(self)
-        pass
+class CreateTab(Frame):
+    def __init__(self, master_notebook, name):
+        super().__init__()
+
+        # add itself to the notebook
+        master_notebook.add_tab(self, text=name)
