@@ -5,6 +5,7 @@ import json
 # description of the case, context (only for historical events),
 # solution options, which include:
 # description of the solutions, variables that will be adjusted and the modifiers.
+
 # low income level events
 lic_events_dict = {"lic_events": [# event list
     {# one event ## The Great Famine of Ireland (1845-1852)
@@ -18,7 +19,7 @@ lic_events_dict = {"lic_events": [# event list
                    "leaving a lasting impact on its economy "
                    "and its relationship with Britain.",
         "solution_options": [{
-            "solution_1": "Subsidize Food Imports: Import food to stabilize prices and supply.",
+            "solution_1": "Subsidise Food Imports: Import food to stabilize prices and supply.",
             "food_supply": +0.5,
             "price_level": -0.2,
             "national_debt": +0.4,
@@ -441,5 +442,9 @@ hic_events_dict = {"hic_events": [# event list
                }
 
 # write to a json file
-with open("events.json", "w") as file:
+with open("lic_events.json", "w") as file:
     json.dump(lic_events_dict, file, indent=4)
+with open("mic_events.json", "w") as file:
+    json.dump(mic_events_dict, file, indent=4)
+with open("hic_events.json", "w") as file:
+    json.dump(hic_events_dict, file, indent=4)

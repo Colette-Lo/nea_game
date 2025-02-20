@@ -1,0 +1,150 @@
+{
+    "mic_events": [
+        {
+            "event_description": "A region experiencing rapid economic growth suddenly faces a financial collapse as investor confidence plummets.",
+            "context": "The Asian Financial Crisis (1997): A sudden loss of investor confidence triggers a financial meltdown across several Asian economies. Currency values plummet, stock markets crash, and foreign capital rapidly exits, leading to deep recessions. Governments scramble to stabilize their economies, turning to international institutions for emergency assistance.",
+            "solution_options": [
+                {
+                    "solution_1": "Raise Interest Rates: Increase rates to stabilize currency and reduce inflation.",
+                    "inflation_rate": -0.4,
+                    "GDP": -0.3,
+                    "unemployment_rate": 0.2
+                },
+                {
+                    "solution_2": "Offer Government Bailouts: Provide emergency loans to struggling businesses.",
+                    "national_debt": 0.3,
+                    "GDP": 0.2,
+                    "tax_revenue": -0.1
+                },
+                {
+                    "solution_3": "Seek International Aid: Accept financial support from the IMF",
+                    "national_debt": 0.2,
+                    "GDP": -0.1,
+                    "public_spending": -0.1
+                }
+            ]
+        },
+        {
+            "event_description": "The country facing years of heavy borrowing and currency instability plunges into a severe economic crisis, leading to widespread public outrage and protests erupt",
+            "context": "The Argentine Economic Crisis (1998-2002): Years of heavy borrowing and currency instability push Argentina into a severe economic crisis. Inflation skyrockets, unemployment soars, and bank runs lead to financial chaos. Drastic government measures fail to restore confidence, sparking mass protests and political upheaval.",
+            "solution_options": [
+                {
+                    "solution_1": "Devalue the Currency: Allow the currency to lose value to boost exports.",
+                    "exports": 0.5,
+                    "inflation_rate": 0.6,
+                    "demand": -0.3
+                },
+                {
+                    "solution_2": "Increase Taxes: Raise taxes on businesses to generate revenue.",
+                    "tax_revenue": 0.3,
+                    "GDP": -0.2,
+                    "happiness_index": -0.3
+                },
+                {
+                    "solution_3": "Dollarise the Economy: Peg the peso to the U.S. dollar.",
+                    "inflation_rate": -0.6,
+                    "GDP": 0.4,
+                    "price_level": -0.2
+                }
+            ]
+        },
+        {
+            "event_description": "A nation burdened by massive debt struggles to meet its financial obligations. As public frustration grows over spending cuts and economic hardship, leaders must find a path to recovery while maintaining social stability.",
+            "context": "The Greek Debt Crisis (2009): Greece\u2019s massive debt burden and economic mismanagement push the country toward financial collapse. Investors demand higher interest rates, making it harder to repay loans, forcing Greece to seek international bailouts. Austerity measures follow, leading to widespread protests, economic hardship, and political instability.",
+            "solution_options": [
+                {
+                    "solution_1": "Implement Austerity: Cut government spending to reduce the deficit.",
+                    "national_debt": -0.5,
+                    "public_spending": -0.5,
+                    "unemployment_rate": 0.4,
+                    "GDP": -0.3
+                },
+                {
+                    "solution_2": "Increase Taxes: Raise taxes on the wealthy and corporations.",
+                    "tax_revenue": 0.3,
+                    "GDP": -0.3,
+                    "business_efficiency": -0.2
+                },
+                {
+                    "solution_3": "Negotiate EU Bailouts: Seek financial assistance from the EU and the ECB ",
+                    "national_debt": -0.2,
+                    "GDP": -0.1,
+                    "public_spending": -0.1,
+                    "tax_revenue": 0.1
+                }
+            ]
+        },
+        {
+            "event_description": "Inflation and rising cost of living has been stressing people. Many are finding it difficult to afford goods and services that are necessary for daily life.",
+            "context": null,
+            "solution_options": [
+                {
+                    "solution_1": "Raise Interest Rates: Increase borrowing costs to slow inflation and stabilize currency.",
+                    "inflation_rate": -0.4,
+                    "GDP": -0.2,
+                    "unemployment_rate": 0.2
+                },
+                {
+                    "solution_2": "Subsidise Essential Goods: Provide government subsidies to reduce the impact of rising prices on households.",
+                    "price_level": -0.3,
+                    "national_debt": 0.3,
+                    "tax_revenue": -0.2
+                },
+                {
+                    "solution_3": "Implement Wage Controls: Limit wage increases to match productivity and help contain inflation.",
+                    "business_efficiency": -0.2,
+                    "inflation_rate": -0.1,
+                    "happiness_index": -0.3
+                }
+            ]
+        },
+        {
+            "event_description": "The growth of public debt is accelerating. Pressure on public finance is very high.",
+            "context": null,
+            "solution_options": [
+                {
+                    "solution_1": "Negotiate Debt Relief: Renegotiate terms with creditors to lower the debt burden.",
+                    "national_debt": -0.4,
+                    "GDP": 0.3,
+                    "public_spending": -0.2
+                },
+                {
+                    "solution_2": "Raise Taxes: Increase taxes on corporations and the wealthy to improve fiscal balance.",
+                    "tax_revenue": 0.3,
+                    "GDP": -0.2,
+                    "business_efficiency": -0.1
+                },
+                {
+                    "solution_3": "Cut Public Spending: Reduce government expenditures, especially in non-essential sectors.",
+                    "national_debt": -0.3,
+                    "public_spending": -0.5,
+                    "happiness_index": -0.2
+                }
+            ]
+        },
+        {
+            "event_description": "Income inequality is getting worse, and people are angry in the country, that they are prepared to riot.",
+            "context": null,
+            "solution_options": [
+                {
+                    "solution_1": "Progressive Taxation: Implement higher taxes on the wealthy to redistribute income.",
+                    "tax_revenue": 0.4,
+                    "happiness_index": 0.3,
+                    "business_efficiency": -0.2
+                },
+                {
+                    "solution_2": "Expand Social Welfare Programs: Provide more social safety nets for lower-income citizens.",
+                    "happiness_index": 0.4,
+                    "public_spending": 0.3,
+                    "GDP": 0.2
+                },
+                {
+                    "solution_3": "Promote Economic Growth through Business Incentives: Offer tax breaks and support for businesses to create more jobs.",
+                    "business_efficiency": 0.4,
+                    "GDP": 0.3,
+                    "tax_revenue": 0.2
+                }
+            ]
+        }
+    ]
+}

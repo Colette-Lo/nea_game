@@ -1,0 +1,161 @@
+{
+    "lic_events": [
+        {
+            "event_description": "A potato crop disease has been going around, causing a large scale of crop failure. The majority of the population depends on this plant as both their source of income and food.",
+            "context": " The Great Famine of Ireland (1845-1852): A potato crop failure, worsened by British policies, led to mass starvation and the death of about a million people. The famine caused widespread emigration, drastically reducing Ireland\u2019s population and leaving a lasting impact on its economy and its relationship with Britain.",
+            "solution_options": [
+                {
+                    "solution_1": "Subsidize Food Imports: Import food to stabilize prices and supply.",
+                    "food_supply": 0.5,
+                    "price_level": -0.2,
+                    "national_debt": 0.4,
+                    "public_spending": 0.3,
+                    "happiness_index": 0.2
+                },
+                {
+                    "solution_2": "Encourage Alternative Crops: Promote crops other than potatoes to reduce dependence.",
+                    "food_supply": 0.3,
+                    "resource_gathering_efficiency": 0.4,
+                    "price_level": -0.1,
+                    "GDP": 0.2,
+                    "happiness_index": 0.1
+                },
+                {
+                    "solution_3": "Send International Aid: Accept British relief and international food aid.",
+                    "food_supply": 0.4,
+                    "national_debt": 0.2,
+                    "public_spending": 0.2,
+                    "GDP": 0.1
+                }
+            ]
+        },
+        {
+            "event_description": "Debt can be damaging to the economy when borrowing excessively from international lenders, especially when global interest rates are rising. What would you do to reduce the pressure on finance?",
+            "context": "The Debt Crisis of the 1980s: Many developing countries, especially in Latin America, struggled with massive debt due to excessive borrowing and rising interest rates. This led to economic instability, hyperinflation, and social unrest, requiring international intervention to restructure debt and impose austerity measures.",
+            "solution_options": [
+                {
+                    "solution_1": "Renegotiate Debt: Work with international lenders to restructure the debt.",
+                    "national_debt": -0.3,
+                    "GDP": 0.2,
+                    "tax_revenue": 0.2,
+                    "public_spending": -0.1
+                },
+                {
+                    "solution_2": "Introduce Austerity Measures: Cut government spending to reduce debt.",
+                    "national_debt": -0.5,
+                    "public_spending": -0.5,
+                    "unemployment_rate": 0.3,
+                    "GDP": -0.3
+                },
+                {
+                    "solution_3": "Seek International Bailouts: Receive aid and loans from the IMF and World Bank.",
+                    "national_debt": -0.2,
+                    "GDP": -0.1,
+                    "public_spending": -0.2,
+                    "tax_revenue": 0.1
+                }
+            ]
+        },
+        {
+            "event_description": "A large factory has collapsed. Most of the workers inside the building were injured severely, many of them did not survive. Majority of the labour force and firms in the manufacturing sector is extremely concerned.",
+            "context": "The Bangladesh Garment Factory Collapse (2013): The collapse of Rana Plaza, a building housing garment factories, killed over 1,100 workers and exposed unsafe labor conditions. The disaster highlighted the dangers of global supply chains prioritizing low costs over worker safety and ethical practices.",
+            "solution_options": [
+                {
+                    "solution_1": "Improve Worker Safety Standards: Introduce regulations to ensure safer working conditions.",
+                    "business_efficiency": -0.1,
+                    "public_spending": 0.2,
+                    "happiness_index": 0.3
+                },
+                {
+                    "solution_2": "Increase Inspection: Set up regular government inspections for factory compliance.",
+                    "business_efficiency": -0.2,
+                    "public_spending": 0.3,
+                    "GDP": -0.1
+                },
+                {
+                    "solution_3": "Raise Wages and Improve Conditions: Pressure manufacturers to improve wages and conditions Raise Wages and Improve Conditions: Pressure manufacturers to improve wages and conditions.",
+                    "business_efficiency": -0.3,
+                    "happiness_index": 0.5,
+                    "price_level": 0.2
+                }
+            ]
+        },
+        {
+            "event_description": "A major river just flooded yesterday, destroying many crops that were about to be harvested. There could be food shortages and rising prices for food in the coming months.",
+            "context": null,
+            "solution_options": [
+                {
+                    "solution_1": "Subsidize Food Imports: Reduce costs of essential food items.",
+                    "food_supply": 0.5,
+                    "price_level": -0.3,
+                    "national_debt": 0.4
+                },
+                {
+                    "solution_2": "Invest in Agricultural Subsidies: Increase local food production through support to farmers.",
+                    "resource_gathering_efficiency": 0.4,
+                    "GDP": 0.3,
+                    "price_level": -0.1
+                },
+                {
+                    "solution_3": "Enforce Price Controls: Set maximum price limits for staple foods to prevent exploitation.",
+                    "price_level": -0.5,
+                    "supply": -0.3,
+                    "happiness_index": 0.2
+                }
+            ]
+        },
+        {
+            "event_description": "Young people who grew up in rural area have very little access to career opportunities, resulting in high unemployment in those areas.",
+            "context": null,
+            "solution_options": [
+                {
+                    "solution_1": "Build Rural Infrastructure: Invest in roads, schools, and utilities to make rural life more sustainable.",
+                    "unemployment_rate": -0.4,
+                    "GDP": 0.3,
+                    "public_spending": 0.4,
+                    "resource_gathering_efficiency": 0.2
+                },
+                {
+                    "solution_2": "Start Public Works Projects: Create jobs through large-scale infrastructure development.",
+                    "unemployment_rate": -0.5,
+                    "GDP": 0.2,
+                    "national_debt": 0.3,
+                    "public_spending": 0.5
+                },
+                {
+                    "solution_3": "Promote Microfinance Programs: Encourage entrepreneurship through small loans for rural entrepreneurs.",
+                    "unemployment_rate": -0.3,
+                    "business_efficiency": 0.3,
+                    "GDP": 0.2,
+                    "tax_revenue": 0.2
+                }
+            ]
+        },
+        {
+            "event_description": "An unknown infectious disease is rapidly spreading in the country. The country currently does not have the knowledge and resources to treat patients who are suffering from it.",
+            "context": null,
+            "solution_options": [
+                {
+                    "solution_1": "Increase Healthcare Spending: Allocate more budget to healthcare to improve services and facilities.",
+                    "life_expectancy": 0.5,
+                    "happiness_index": 0.4,
+                    "public_spending": 0.5,
+                    "national_debt": 0.2
+                },
+                {
+                    "solution_2": "Partner with NGOs for Aid: Collaborate with international aid organizations to address immediate needs.",
+                    "life_expectancy": 0.3,
+                    "happiness_index": 0.3,
+                    "public_spending": 0.2
+                },
+                {
+                    "solution_3": "Focus on Preventive Measures: Promote sanitation, vaccination programs, and health education to prevent disease outbreaks.",
+                    "life_expectancy": 0.4,
+                    "happiness_index": 0.3,
+                    "public_spending": 0.3,
+                    "GDP": 0.2
+                }
+            ]
+        }
+    ]
+}
