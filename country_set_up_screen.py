@@ -82,47 +82,7 @@ from screens import Screen
 #
 
 
-class SetUpCountryScreen(Screen):
-    def __init__(self):
-        super().__init__()
-
-        # Heading label
-        self.heading = tk.Label(self,
-                                text="Set up your country",
-                                font=('Arial', 30),
-                                bg="white",
-                                width=20,
-                                height=2
-                                )
-        self.heading.pack(padx=10, pady=50)
-
-        # Name label
-        self.name_heading = tk.Label(self, text="Name: ", font=('Arial', 20))
-        self.name_heading.pack(padx=10, pady=10, anchor="w")
-
-        # Text box for typing in the name.
-        self.name_box = tk.Entry(self, width=30, font=('Arial', 30))
-        self.name_box.pack(padx=10, pady=40, anchor="w")
-
-        # Label for the section where the player choose the flag.
-        self.flag_heading = tk.Label(self, text="Flag: ", font=('Arial', 20))
-        self.flag_heading.pack(padx=10, pady=10, anchor="w")
-
-        # Flag options
-        # self.list_of_flags = [["Flag 1", "C:/Users/colet/OneDrive/Desktop/flag_1.png"],
-        #                       ["Flag 2", "C:/Users/colet/OneDrive/Desktop/flag_2.png"],
-        #                       ["Flag 3", "C:/Users/colet/OneDrive/Desktop/flag_3.png"]
-        #                       ]
-        self.image_reference = []
-
-        # Button to confirm choices.
-        self.save_button = tk.Button(self, text="Save", font=('Arial', 20), command=self.save_choice)
-
-        self.flag_1 = "C:/Users/colet/OneDrive/Desktop/flag_1.png"
-        self.flag_2 = "C:/Users/colet/OneDrive/Desktop/flag_2.png"
-        self.flag_3 = "C:/Users/colet/OneDrive/Desktop/flag_3.png"
-
-        # for i in range(len(self.list_of_flags)):
+# for i in range(len(self.list_of_flags)):
         #     # Open image
         #     open_flag = Image.open(self.list_of_flags[i][1])
         #     flag_photo = ImageTk.PhotoImage(open_flag)
@@ -144,6 +104,41 @@ class SetUpCountryScreen(Screen):
         #     ## label for the images
         #     flag_lbl = tk.Label(self, image=flag_photo)
         #     flag_lbl.pack(padx=10, side="left")
+
+
+class SetUpCountryScreen(Screen):
+    def __init__(self):
+        super().__init__()
+
+        # Heading label
+        self.heading = tk.Label(self,
+                                text="Set up your country",
+                                font=('Arial', 30),
+                                bg="white",
+                                width=20,
+                                height=2
+                                )
+        self.heading.pack(padx=10, pady=50)
+
+        # Name label
+        self.name_heading = tk.Label(self, text="Name: ", font=('Arial', 20))
+        self.name_heading.pack(padx=10, pady=10, anchor="w")
+
+        # Text box for entering the name.
+        self.name_box = tk.Entry(self, width=30, font=('Arial', 30))
+        self.name_box.pack(padx=10, pady=40, anchor="w")
+
+        # Label the section where the player choose the flag.
+        self.flag_heading = tk.Label(self, text="Flag: ", font=('Arial', 20))
+        self.flag_heading.pack(padx=10, pady=10, anchor="w")
+
+        # Button to confirm choices.
+        self.save_button = tk.Button(self, text="Save", font=('Arial', 20), command=self.save_choice)
+
+        # paths
+        self.flag_1 = "C:/Users/colet/OneDrive/Desktop/flag_1.png"
+        self.flag_2 = "C:/Users/colet/OneDrive/Desktop/flag_2.png"
+        self.flag_3 = "C:/Users/colet/OneDrive/Desktop/flag_3.png"
 
         self.var = tk.IntVar()
         # Flag 1
@@ -189,24 +184,29 @@ class SetUpCountryScreen(Screen):
 
     def verify_name(self):
         player_name = self.name_box.get()
+        # length check is not needed as the length of the text box is the maximum length
         if player_name != "":
+            # player_name can only have alphabets
             if player_name.isalpha():
                 return True
         return False
 
-
+    # invalid_message should be on the outside of the loop
+    # make it an attribute
+    # use a messagebox instead
     def set_name(self):
         if self.verify_name():
             valid_name = self.name_box.get()
             return valid_name
         else:
-            invalid_message = tk.Label(self, text="Name is not valid.", font=('Arial', 20))
-            invalid_message.pack(padx=10, pady = 10, anchor="s")
+            # containing the error message in a label
+            invalid_message = tk.Label(self, text="Name can only have alphabets.", font=('Arial', 20))
+            invalid_message.pack(padx=10, pady = 10, anchor="n")
             return ""
 
-    ## error: var
     def chose_flag(self):
         while self.var.get() != 0:
+            # checking var to see what number it has changed to
             if self.var.get() == 1:
                 new_flag = self.flag_1
             elif self.var.get() == 2:
@@ -214,13 +214,11 @@ class SetUpCountryScreen(Screen):
             else:
                 new_flag = self.flag_3
             return new_flag
-    #     print(self.var.get())
-    #     chosen_flag_path = self.list_of_flags[int(self.var.get())]
-    #     return chosen_flag_path
 
+    # don't close unless all valid
     def save_choice(self):
         new_name = self.set_name()
         new_flag_object = self.chose_flag()
-        self.destroy()
-        print([new_name, new_flag_object])
-        return [new_name, new_flag_object]
+        if new_name() != "":
+            self.destroy()
+            return [new_name, new_flag_object]
