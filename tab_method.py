@@ -37,6 +37,3 @@ class CreateNotebook(ttk.Notebook):
 class CreateTab(Frame):
     def __init__(self, master_notebook, name):
         super().__init__()
-
-        # add itself to the notebook
-        master_notebook.add_tab(self, text=name)

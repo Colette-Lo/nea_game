@@ -1,8 +1,9 @@
+from start_screen import StartScreen
 # using a graph to keep track of the game state
 screen_graph = {
                 "start_screen": ["initial_setup_screen", "home_page"],
                 "initial_setup_screen": ["home_page"],
-                "home_page": ["profile_screen", "scenario_decision_screen", "trade_screen", "technology_screen", "production_screen", "budget_screen", "resource_gathering_screen"],
+                "home_page": ["profile_screen", "scenario_decision_screen", "trade_screen", "technology_screen", "production_screen", "budget_screen", "rgo_screen"],
                 "scenario_decision_screen": ["scenario_news_screen"],
                 "scenario_news_screen": ["home_page", "scenario_info_screen"],
                 "scenario_info_screen": ["home_page"],
@@ -12,3 +13,6 @@ screen_graph = {
                 "budget_screen": None,
                 "resource_gathering_screen": None
 }
+
+my_start = StartScreen()
+my_start.mainloop()

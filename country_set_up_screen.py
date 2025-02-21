@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import PhotoImage
+from tkinter import PhotoImage, messagebox
 from PIL import Image, ImageTk
 
 from screens import Screen
@@ -199,10 +199,7 @@ class SetUpCountryScreen(Screen):
             valid_name = self.name_box.get()
             return valid_name
         else:
-            # containing the error message in a label
-            invalid_message = tk.Label(self, text="Name can only have alphabets.", font=('Arial', 20))
-            invalid_message.pack(padx=10, pady = 10, anchor="n")
-            return ""
+            return "Invalid name: name should only have alphabets." # instead of returning nothing
 
     def chose_flag(self):
         while self.var.get() != 0:
@@ -219,6 +216,11 @@ class SetUpCountryScreen(Screen):
     def save_choice(self):
         new_name = self.set_name()
         new_flag_object = self.chose_flag()
-        if new_name() != "":
+        if new_name == "Invalid name: name should only have alphabets.":
+            self.show_error(new_name)
+        else:
             self.destroy()
             return [new_name, new_flag_object]
+
+    def show_error(self, error_message):
+        messagebox.showerror("Error", error_message)
