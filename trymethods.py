@@ -1,6 +1,6 @@
 # import all classes/methods
 # from the tkinter module
-import tkinter
+import tkinter as tk
 from tkinter import messagebox
 
 import matplotlib.pyplot as plt
@@ -71,8 +71,3 @@ window.title('Plotting in Tkinter')
 
 # run the gui
 window.mainloop()
-
-# functions for indicators
-
-gdp = 0.0
-life_ex = 0.0

@@ -1,90 +1,99 @@
 import tkinter as tk
 from tkinter import ttk
-from PIL.ImageOps import expand
-from matplotlib.font_manager import fontManager
-from numpy.ma.extras import row_stack, column_stack
-from setuptools.logging import configure
 
-# The screen where spending and income is displayed.
-# Create window
-window = tk.Tk()
+from screens import Screen
 
-# Provide the resolution and title of the window.
-window.geometry("1920x1080")
-window.title("Country Simulation")
+project_tree = {
+    "Agricultural Machinery":["Semi-Automated Manufacturing Plants"],
+    "Rural Road & Bridge Expansion":["Smart Grid & Public Transit Upgrade"],
+    "Affordable Biofuel Production":["Solar & Wind Energy"],
+    "Semi-Automated Manufacturing Plants":["Robotics & AI-Driven Factories"],
+    "Smart Grid & Public Transit Upgrade":["Smart Cities"],
+    "Solar & Wind Energy":["Carbon Capture & Sustainable Synthetic Fuels"],
+    "Robotics & AI-Driven Factories": None,
+    "Smart Cities": None,
+    "Carbon Capture & Sustainable Synthetic Fuels": None
+}
 
-# Show the heading
-page_heading = tk.Label(window,
-                        text="Technology",
-                        font=('Arial', 30),
-                        bg="white",
-                        width=10,
-                        height=2
-                        )
-page_heading.pack(padx=10, anchor='w')
+class TechnologyScreen(Screen):
+    def __init__(self):
+        super().__init__()
 
-# Sectors labels
-# Label frame
-# Procedure for organising labels side by side.
-frame_name = tk.LabelFrame(window, borderwidth=0)
-frame_name.columnconfigure(0, weight=1)
-frame_name.pack(padx=10, pady=10, anchor='n')
-
-
-# Mechanisation
-mech_lbl =  tk.Label(frame_name,
-                     text="Mechanisation",
-                     font=('Arial', 20),
-                     bg="white",
-                     width=25,
-                     height=2
-                    )
-mech_lbl.grid(row=0, column=0, padx=40, pady=10, sticky='ew')
-
-# Infrastructure
-infra_lbl =  tk.Label(frame_name,
-                        text="Infrastructure",
-                        font=('Arial', 20),
-                        bg="white",
-                        width=25,
-                        height=2
-                        )
-infra_lbl.grid(row=0, column=1, padx=40, pady=10, sticky='ew')
-
-# Chemistry and power
-chem_power_lbl =  tk.Label(frame_name,
-                        text="Chemistry and power",
-                        font=('Arial', 20),
-                        bg="white",
-                        width=25,
-                        height=2
-                        )
-chem_power_lbl.grid(row=0, column=2, padx=40, pady=10, sticky='ew')
-
-# Project tabs
-# Create one notebook widget for each sector
-mech_tab_control = ttk.Notebook(window,
-                                width=400,
-                                height=900,
-                                side=tk.LEFT
+        self.heading = tk.Label(self,
+                                text="Production",
+                                font=('Arial', 30),
+                                bg="white"
                                 )
+        self.heading.pack(padx=10, pady=10, anchor="w")
 
-def make_tabs(tab_control, tab_name, content):
-    tab = ttk.Frame(tab_control)
-    # Add tab name
-    tab_control.add(tab, text=tab_name)
-    tab_control.pack()
+        # dividing the screen into three sections
+        self.tech_screen_frame = tk.Frame(self, borderwidth=0)
+        self.tech_screen_frame.columnconfigure(0, weight=1)
+        self.tech_screen_frame.pack(padx=10, pady=10, anchor='n')
 
-    # Content
-    ttk.Label(tab, text=content, font=('Arial', 14)).pack(padx=10, pady=10, anchor='w')
+        # Mechanisation
+        self.mech_lbl =  tk.Label(self.tech_screen_frame,
+                             text="Mechanisation",
+                             font=('Arial', 20),
+                             bg="white",
+                             width=25,
+                             height=2
+                            )
+        self.mech_lbl.grid(row=0, column=0, padx=40, pady=10, sticky='ew')
+        self.mech_notebook = ttk.Notebook(self.tech_screen_frame)
+        self.mech_notebook.grid(row=1, column=0, sticky='nsew')
 
-    # Research button
-    research_btn = tk.Button(tab, text=("Research"), font=('Arial', 14))
-    research_btn.pack(padx=10, pady=10, anchor='s')
+        # Infrastructure
+        self.infra_lbl =  tk.Label(self.tech_screen_frame,
+                                text="Infrastructure",
+                                font=('Arial', 20),
+                                bg="white",
+                                width=25,
+                                height=2
+                                )
+        self.infra_lbl.grid(row=0, column=1, padx=40, pady=10, sticky='ew')
+        self.infra_notebook = ttk.Notebook(self.tech_screen_frame)
+        self.infra_notebook.grid(row=1, column=1, sticky='nsew')
 
-stuff = 'edfg'
-make_tabs(mech_tab_control, "project1", stuff)
-window.mainloop()
+        # Chemistry and power
+        self.chem_power_lbl =  tk.Label(self.tech_screen_frame,
+                                text="Chemistry and power",
+                                font=('Arial', 20),
+                                bg="white",
+                                width=25,
+                                height=2
+                                )
+        self.chem_power_lbl.grid(row=0, column=2, padx=40, pady=10, sticky='ew')
+        self.chem_notebook = ttk.Notebook(self.tech_screen_frame)
+        self.chem_notebook.grid(row=1, column=2, sticky='nsew')
 
 
+class ProjectTab(tk.Frame):
+    def __init__(self, master_notebook, proj_name, content, time_required, invested, children):
+        super().__init__()
 
+        # add itself to the notebook
+        master_notebook.add(self, text=proj_name)
+
+        # attributes
+        self.content = tk.Label(self, text=content, font=('Arial', 20))
+        self.content.pack(padx=10, pady=10, anchor="w")
+
+        self.research_time = time_required
+        self.invested = invested
+        self.children_proj = children
+
+
+        # Research button
+        self.research_btn = tk.Button(self, text=("Research"), font=('Arial', 14))
+        self.research_btn.pack(padx=10, pady=10, anchor='s')
+
+
+# main
+tech_screen = TechnologyScreen()
+
+p1 = ProjectTab(tech_screen.mech_notebook, "Agricultural Machinery", "this is the first project")
+p2 = ProjectTab(tech_screen.infra_notebook, "Tunnel", "this is the second project")
+p3 = ProjectTab(tech_screen.chem_notebook, "Electricity", "this is the third project")
+
+tech_screen.mainloop()

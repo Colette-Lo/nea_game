@@ -6,6 +6,8 @@ from PIL import Image, ImageTk
 from screens import Screen
 import time
 from object_dictionaries import materials
+from products import *
+
 
 class ResourceGatheringScreen(Screen):
     def __init__(self):
@@ -22,23 +24,21 @@ class ResourceGatheringScreen(Screen):
         self.rgo_notebook = ttk.Notebook(self, width=900, height=600)
         self.rgo_notebook.pack(padx=10, pady=10)
 
-        # list of raw materials
-        # "Coal", "Oil", "Crops", "Metals", "Timber", "Wool"
-
 
 class ResourceTab(tk.Frame):
-    def __init__(self, master_notebook, mat_name, material_img, op_time, op_efficiency):
+    def __init__(self, master_notebook, mat_name, material_img, op_time, op_efficiency, extract_cost):
         super().__init__()
 
         # add itself to the notebook
         master_notebook.add(self, text=mat_name)
 
         # storing the parameters
-        self.total_time = int(op_time)
+        self.total_time = float(op_time)
         self.period_duration = self.total_time / 5
         self.efficiency = float(op_efficiency)
+        self.cost = extract_cost
         self.total_output = 0.0
-        self.period_output = 1 # cannot start with 0
+        self.period_output = 1.0 # cannot start with 0
 
         # image of the material
         self.material_image_path = material_img
@@ -60,6 +60,9 @@ class ResourceTab(tk.Frame):
 
         self.output_label = ttk.Label(self, text="Total output: " + str(self.total_output), font=('Arial', 16))
         self.output_label.pack(padx=10, pady=20, anchor="w")
+
+        self.cost_label = ttk.Label(self, text="Cost: " + str(self.cost), font=('Arial', 16))
+        self.cost_label.pack(padx=10, pady=20, anchor="w")
 
         # button for collecting resources gathered
         self.collect_btn = tk.Button(self, text="Collect", font=('Arial', 16))
@@ -114,37 +117,43 @@ coal_tab = ResourceTab(rgo_screen.rgo_notebook,
                        materials[0]["name"],
                        materials[0]["image_path"],
                        materials[0]["operation_time"],
-                       materials[0]["operation_efficiency"]
+                       materials[0]["operation_efficiency"],
+                       coal.ex_cost
                        )
 oil_tab = ResourceTab(rgo_screen.rgo_notebook,
                        materials[1]["name"],
                        materials[1]["image_path"],
                        materials[1]["operation_time"],
-                       materials[1]["operation_efficiency"]
+                       materials[1]["operation_efficiency"],
+                      oil.ex_cost
                        )
 crops_tab = ResourceTab(rgo_screen.rgo_notebook,
                         materials[2]["name"],
                         materials[2]["image_path"],
                         materials[2]["operation_time"],
-                        materials[2]["operation_efficiency"]
+                        materials[2]["operation_efficiency"],
+                        crops.ex_cost
                         )
 metals_tab = ResourceTab(rgo_screen.rgo_notebook,
                          materials[3]["name"],
                          materials[3]["image_path"],
                          materials[3]["operation_time"],
-                         materials[3]["operation_efficiency"]
+                         materials[3]["operation_efficiency"],
+                         metals.ex_cost
                          )
 timber_tab = ResourceTab(rgo_screen.rgo_notebook,
                          materials[4]["name"],
                          materials[4]["image_path"],
                          materials[4]["operation_time"],
-                         materials[4]["operation_efficiency"]
+                         materials[4]["operation_efficiency"],
+                         timber.ex_cost
                          )
 wool_tab = ResourceTab(rgo_screen.rgo_notebook,
                        materials[5]["name"],
                        materials[5]["image_path"],
                        materials[5]["operation_time"],
-                       materials[5]["operation_efficiency"]
+                       materials[5]["operation_efficiency"],
+                       wool.ex_cost
                        )
 
 rgo_screen.mainloop()
