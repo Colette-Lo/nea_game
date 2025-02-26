@@ -4,16 +4,16 @@ from tkinter import ttk
 from screens import Screen
 
 project_tree = {
-    "Agricultural Machinery":["Semi-Automated Manufacturing Plants"],
-    "Rural Road & Bridge Expansion":["Smart Grid & Public Transit Upgrade"],
-    "Affordable Biofuel Production":["Solar & Wind Energy"],
-    "Semi-Automated Manufacturing Plants":["Robotics & AI-Driven Factories"],
-    "Smart Grid & Public Transit Upgrade":["Smart Cities"],
-    "Solar & Wind Energy":["Carbon Capture & Sustainable Synthetic Fuels"],
-    "Robotics & AI-Driven Factories": None,
-    "Smart Cities": None,
-    "Carbon Capture & Sustainable Synthetic Fuels": None
-}
+                "Agricultural Machinery":["Semi-Automated Manufacturing Plants"],
+                "Rural Road & Bridge Expansion":["Smart Grid & Public Transit Upgrade"],
+                "Affordable Biofuel Production":["Solar & Wind Energy"],
+                "Semi-Automated Manufacturing Plants":["Robotics & AI-Driven Factories"],
+                "Smart Grid & Public Transit Upgrade":["Smart Cities"],
+                "Solar & Wind Energy":["Carbon Capture & Sustainable Synthetic Fuels"],
+                "Robotics & AI-Driven Factories": None,
+                "Smart Cities": None,
+                "Carbon Capture & Sustainable Synthetic Fuels": None
+            }
 
 class TechnologyScreen(Screen):
     def __init__(self):
@@ -92,8 +92,8 @@ class ProjectTab(tk.Frame):
 # main
 tech_screen = TechnologyScreen()
 
-p1 = ProjectTab(tech_screen.mech_notebook, "Agricultural Machinery", "this is the first project")
-p2 = ProjectTab(tech_screen.infra_notebook, "Tunnel", "this is the second project")
-p3 = ProjectTab(tech_screen.chem_notebook, "Electricity", "this is the third project")
+p1 = ProjectTab(tech_screen.mech_notebook, "Agricultural Machinery", "this is the first project", 40, 0, "m")
+p2 = ProjectTab(tech_screen.infra_notebook, "Tunnel", "this is the second project", 40, 0, "m")
+p3 = ProjectTab(tech_screen.chem_notebook, "Electricity", "this is the third project", 40, 0, "m")
 
 tech_screen.mainloop()

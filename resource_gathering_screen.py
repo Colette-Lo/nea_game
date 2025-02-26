@@ -33,12 +33,14 @@ class ResourceTab(tk.Frame):
         master_notebook.add(self, text=mat_name)
 
         # storing the parameters
-        self.total_time = float(op_time)
-        self.period_duration = self.total_time / 5
+        self.resource_name = mat_name
+        self.total_time = int(op_time)
         self.efficiency = float(op_efficiency)
         self.cost = extract_cost
         self.total_output = 0.0
         self.period_output = 1.0 # cannot start with 0
+        self.finished = True
+        self.start_time = 0
 
         # image of the material
         self.material_image_path = material_img
@@ -48,11 +50,11 @@ class ResourceTab(tk.Frame):
         self.show_material()
 
         # button for starting gathering
-        self.start_op_btn = tk.Button(self, text="Start", font=('Arial', 16))
+        self.start_op_btn = tk.Button(self, text="Start", font=('Arial', 16), command=self.click_start)
         self.start_op_btn.pack(anchor="w", padx=10, pady=10)
 
         # labels displaying the operation time, efficiency, total output
-        self.time_label = ttk.Label(self, text="Time: " + op_time, font=('Arial', 16))
+        self.time_label = ttk.Label(self, text="Time(minutes): " + str(self.total_time/60), font=('Arial', 16))
         self.time_label.pack(padx=10, pady=20, anchor="w")
 
         self.efficiency_label = ttk.Label(self, text="Efficiency: " + op_efficiency, font=('Arial', 16))
@@ -65,11 +67,12 @@ class ResourceTab(tk.Frame):
         self.cost_label.pack(padx=10, pady=20, anchor="w")
 
         # button for collecting resources gathered
-        self.collect_btn = tk.Button(self, text="Collect", font=('Arial', 16))
+        self.collect_btn = tk.Button(self, text="Collect", font=('Arial', 16), command = self.click_collect)
         self.collect_btn.pack(side="bottom", anchor="w", padx=10)
 
         # status of the operation
         self.is_active = False
+
 
     def show_material(self):
         open_mat_img = Image.open(self.material_image_path)
@@ -83,33 +86,44 @@ class ResourceTab(tk.Frame):
     def click_start(self):
         if not self.is_active:
             self.is_active = True
-            start_time = time.time()
-            return start_time
+            self.finished = False
+            # recording the start time
+            self.start_time = time.time()
+            # adjusting the actual time needed
+            self.total_time = self.total_time * (1 - self.efficiency)
+            messagebox.showinfo("Operation started", ("Collect after:", int(self.total_time//60), "minutes"))
+        else:
+            messagebox.showwarning("Warning", "Resource Gathering Operation is already active")
 
     def progress(self):
-        if self.is_active:
-            self.period_duration *= (1 - self.efficiency)
-            total_periods = self.total_time
+        # total collected initially is 0
+        total_collected = 0.0
+        # calculating output that should be rewarded
+        self.period_output = self.period_output * (1 + self.efficiency)
+        # only check when not finished collecting
+        if not self.finished:
+            # recording the current time
+            current = time.time()
+            # checking the amount of time passed
+            if (current - self.start_time) >= self.total_time:
+                # task is finished
+                self.finished = True
+                # return the amount earned
+                total_collected += self.period_output
+                return total_collected
+        return total_collected
 
-            total_collected = 0.0
-            period_start = self.click_start()
-
-            for i in range(total_periods):
-                while (time.time()-period_start) >= self.period_duration:
-                    self.period_output *= (1 - self.efficiency)
-                    # adding what has been collected to total output of one op
-                    total_collected += self.period_output
-                    # start time for the next period
-                    period_start = time.time()
-            return total_collected
 
     def click_collect(self):
         new_gathered = self.progress()
-        # add gathered to total material has ever been collected
-        self.total_output += new_gathered
-        # add this to supply
-        messagebox.showinfo("Operation completed", ("You have collected:"+ new_gathered))
-        new_gathered = 0.0
+        if new_gathered != 0.0:
+            # add gathered to total material has ever been collected
+            self.total_output += new_gathered
+            # add this to supply
+            # self.resource_name.supply += new_gathered
+            messagebox.showinfo("Operation completed", ("You have collected:", str(new_gathered)))
+        else:
+            messagebox.showwarning("Warning", "Cannot collect the resource yet")
 
 # main
 rgo_screen = ResourceGatheringScreen()

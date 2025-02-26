@@ -1,73 +1,42 @@
-# import all classes/methods
-# from the tkinter module
-import tkinter as tk
-from tkinter import messagebox
-
-import matplotlib.pyplot as plt
-import numpy as np
-from tkinter import *
-from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
-                                               NavigationToolbar2Tk)
-# For pie chart in Budget
-# plot function is created for
-# plotting the graph in
-# tkinter window
-# def plot():
-#     # the figure that will contain the plot
-#     fig = Figure(figsize=(5, 5),
-#                  dpi=80)
+# # import all classes/methods
+# # from the tkinter module
+# import time
 #
-#     # values for the pie chart
-#     tax_value = 30000
-#     spending_value = 100000
-#     pie_chart_data = np.array([tax_value, spending_value])
-#     my_labels = ["Tax revenue", "Gov spending"]
+# # Global variables
+# active = False
+# period_duration = None
+# start_time = 0
+# total_periods = None
+# efficiency = 0.3
+# total_time = 60
+# total_collected = 0.0
 #
-#     # adding the subplot
-#     ax = fig.add_subplot(111)
-#
-#     # plotting the graph
-#     ax.pie(pie_chart_data, labels=my_labels, startangle=90, shadow=True)
-#
-#     # ax.show()
-#     ## does not need show(). add to report how this mistake was fixed.
-#
-#     # creating the Tkinter canvas
-#     # containing the Matplotlib figure
-#     canvas = FigureCanvasTkAgg(fig,
-#                                master=my_frame)
-#
-#     # placing the canvas on the Tkinter window
-#     canvas.get_tk_widget().grid(row=0, column=0, columnspan=3)
-#     # making sure the graph is up to date
-#     canvas.draw()
+# # Subroutines
+# def click_start():
+#     if not active:
+#         # record start time
+#         start_time = int(time.time())
+#         return start_time
 #
 #
-# the main Tkinter window
-window = Tk()
-
-# setting the title
-window.title('Plotting in Tkinter')
-
-# dimensions of the main window
-# window.geometry("1000x700")
+# def progress(amount):
+#     current = int(time.time())
+#     if (current - start_time) >= total_time:
+#         return(total_collected + amount)
+#     # for i in range(total_collected):
+#     #     while (time.time()-period_start) >= self.period_duration:
+#     #         self.period_output *= (1 - self.efficiency)
+#     #         # adding what has been collected to total output of one op
+#     #         total_collected += self.period_output
+#     #         # start time for the next period
+#     #         period_start = time.time()
+#     # return total_collected
 #
-# # make a label?
-# plot_label = Label(master=window,
-#                    text="Budget",
-#                    font=("Helvetica", 20)
-#                    )
-# # place the button
-# # in main window
-# plot_label.pack(anchor="n", side="left")
+# def click_collect():
+#     pass
 #
-# # frame that holds the plot
-# my_frame = Frame(window)
-# # positioning on the left of the screen
-# my_frame.pack(anchor="w", side="left")
-# plot()
-
-
-# run the gui
-window.mainloop()
+#
+# # Main
+# click_start()
+# new_output = progress(50)
+# print(new_output)

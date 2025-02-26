@@ -145,13 +145,33 @@ class HomePageScreen(Screen):
         self.scenario_button.pack(anchor="w")
 
         #List of instances from each screen class.
-        self.menu_items = ["Profile", "Trade", "Technology", "Production", "Budget", "Resource gathering"]
-        self.show_menu()
+        # self.menu_items = ["Profile", "Trade", "Technology", "Production", "Budget", "Resource gathering"]
+        # self.show_menu()
 
         # Map image
         self.map_image_path = "C:/Users/colet/OneDrive/Desktop/game_map.png"
         self.map_opened = []
         self.show_map()
+
+        self.var = tk.IntVar()
+        # Menu buttons
+        self.prof_btn = tk.Button(self.menu_frame, text="Profile", font=('Arial', 17), width=19, height=2)
+        self.prof_btn.grid(row=0, column=0)
+
+        self.trade_btn = tk.Button(self.menu_frame, text="Trade", font=('Arial', 17), width=19, height=2)
+        self.trade_btn.grid(row=0, column=1)
+
+        self.tech_btn = tk.Button(self.menu_frame, text="Technology", font=('Arial', 17), width=19, height=2)
+        self.tech_btn.grid(row=0, column=2)
+
+        self.prod_btn = tk.Button(self.menu_frame, text="Production", font=('Arial', 17), width=19, height=2)
+        self.prod_btn.grid(row=0, column=3)
+
+        self.budget_btn = tk.Button(self.menu_frame, text="Budget", font=('Arial', 17), width=19, height=2)
+        self.budget_btn.grid(row=0, column=4)
+
+        self.resource_btn = tk.Button(self.menu_frame, text="Resource Gathering", font=('Arial', 17), width=19, height=2)
+        self.resource_btn.grid(row=0, column=5)
 
     def show_map(self):
         open_map = Image.open(self.map_image_path)
@@ -162,12 +182,12 @@ class HomePageScreen(Screen):
         map_lbl = tk.Label(self, image=map_file)
         map_lbl.pack(fill="x", expand=False)
 
-    def make_menu_button(self, item, grid_num):
-        tk.Button(self.menu_frame, text=item, font=('Arial', 17), width=15, height=2).grid(row=0, column=grid_num)
+    # def make_menu_button(self, item, grid_num):
+    #     tk.Button(self.menu_frame, text=item, font=('Arial', 17), width=15, height=2).grid(row=0, column=grid_num)
 
-    def show_menu(self):
-        for i in range(len(self.menu_items)):
-            self.make_menu_button(self.menu_items[i], i)
+    # def show_menu(self):
+    #     for i in range(len(self.menu_items)):
+    #         self.make_menu_button(self.menu_items[i], i)
 
     def click_scenario(self):
         pass
@@ -177,13 +197,10 @@ class HomePageScreen(Screen):
 
 
 
-
-
-
-
-
 ### tested. ####
 ## made an alternative method for the menu bar just in case ##
 ##### CHANGE SCREENSHOTS FOR MILESTONE 1
 ##### THERE IS NO RESOURCE SCREEN WHY DID YOU ADD RESOURCES TO THE LIST
 ##### THERE IS ALSO NO FIRMS. JUST TRADE, AND PRODUCTION. THEY ARE SEPARATED.
+try_home = HomePageScreen()
+try_home.mainloop()

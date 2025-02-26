@@ -118,78 +118,78 @@ class ProducitonTab(tk.Frame):
 # main
 prod_screen = ProductionScreen()
 
-# low income stage
-firm1 = ProducitonTab(prod_screen.production_notebook,
-                      prod[0]["firm_name"],
-                      prod[0]["product_name"],
-                      prod[0]["location"],
-                      prod[0]["firm_efficiency"],
-                      prod[0]["image_path"]
-                      )
-firm2 = ProducitonTab(prod_screen.production_notebook,
-                      prod[1]["firm_name"],
-                      prod[1]["product_name"],
-                      prod[1]["location"],
-                      prod[1]["firm_efficiency"],
-                      prod[1]["image_path"]
-                      )
-firm3 = ProducitonTab(prod_screen.production_notebook,
-                      prod[2]["firm_name"],
-                      prod[2]["product_name"],
-                      prod[2]["location"],
-                      prod[2]["firm_efficiency"],
-                      prod[2]["image_path"]
-                      )
-firm4 = ProducitonTab(prod_screen.production_notebook,
-                      prod[3]["firm_name"],
-                      prod[3]["product_name"],
-                      prod[3]["location"],
-                      prod[3]["firm_efficiency"],
-                      prod[3]["image_path"]
-                      )
-firm5 = ProducitonTab(prod_screen.production_notebook,
-                      prod[4]["firm_name"],
-                      prod[4]["product_name"],
-                      prod[4]["location"],
-                      prod[4]["firm_efficiency"],
-                      prod[4]["image_path"]
-                      )
-# middle income stage
-firm6 = ProducitonTab(prod_screen.production_notebook,
-                      prod[5]["firm_name"],
-                      prod[5]["product_name"],
-                      prod[5]["location"],
-                      prod[5]["firm_efficiency"],
-                      prod[5]["image_path"]
-                      )
-firm7 = ProducitonTab(prod_screen.production_notebook,
-                      prod[6]["firm_name"],
-                      prod[6]["product_name"],
-                      prod[6]["location"],
-                      prod[6]["firm_efficiency"],
-                      prod[6]["image_path"]
-                      )
-firm8 = ProducitonTab(prod_screen.production_notebook,
-                      prod[7]["firm_name"],
-                      prod[7]["product_name"],
-                      prod[7]["location"],
-                      prod[7]["firm_efficiency"],
-                      prod[7]["image_path"]
-                      )
-# high income stage
-firm9 = ProducitonTab(prod_screen.production_notebook,
-                      prod[8]["firm_name"],
-                      prod[8]["product_name"],
-                      prod[8]["location"],
-                      prod[8]["firm_efficiency"],
-                      prod[8]["image_path"]
-                      )
-firm10 = ProducitonTab(prod_screen.production_notebook,
-                       prod[9]["firm_name"],
-                       prod[9]["product_name"],
-                       prod[9]["location"],
-                       prod[9]["firm_efficiency"],
-                       prod[9]["image_path"]
-                       )
+# # low income stage
+# firm1 = ProducitonTab(prod_screen.production_notebook,
+#                       prod[0]["firm_name"],
+#                       prod[0]["product_name"],
+#                       prod[0]["location"],
+#                       prod[0]["firm_efficiency"],
+#                       prod[0]["image_path"]
+#                       )
+# firm2 = ProducitonTab(prod_screen.production_notebook,
+#                       prod[1]["firm_name"],
+#                       prod[1]["product_name"],
+#                       prod[1]["location"],
+#                       prod[1]["firm_efficiency"],
+#                       prod[1]["image_path"]
+#                       )
+# firm3 = ProducitonTab(prod_screen.production_notebook,
+#                       prod[2]["firm_name"],
+#                       prod[2]["product_name"],
+#                       prod[2]["location"],
+#                       prod[2]["firm_efficiency"],
+#                       prod[2]["image_path"]
+#                       )
+# firm4 = ProducitonTab(prod_screen.production_notebook,
+#                       prod[3]["firm_name"],
+#                       prod[3]["product_name"],
+#                       prod[3]["location"],
+#                       prod[3]["firm_efficiency"],
+#                       prod[3]["image_path"]
+#                       )
+# firm5 = ProducitonTab(prod_screen.production_notebook,
+#                       prod[4]["firm_name"],
+#                       prod[4]["product_name"],
+#                       prod[4]["location"],
+#                       prod[4]["firm_efficiency"],
+#                       prod[4]["image_path"]
+#                       )
+# # middle income stage
+# firm6 = ProducitonTab(prod_screen.production_notebook,
+#                       prod[5]["firm_name"],
+#                       prod[5]["product_name"],
+#                       prod[5]["location"],
+#                       prod[5]["firm_efficiency"],
+#                       prod[5]["image_path"]
+#                       )
+# firm7 = ProducitonTab(prod_screen.production_notebook,
+#                       prod[6]["firm_name"],
+#                       prod[6]["product_name"],
+#                       prod[6]["location"],
+#                       prod[6]["firm_efficiency"],
+#                       prod[6]["image_path"]
+#                       )
+# firm8 = ProducitonTab(prod_screen.production_notebook,
+#                       prod[7]["firm_name"],
+#                       prod[7]["product_name"],
+#                       prod[7]["location"],
+#                       prod[7]["firm_efficiency"],
+#                       prod[7]["image_path"]
+#                       )
+# # high income stage
+# firm9 = ProducitonTab(prod_screen.production_notebook,
+#                       prod[8]["firm_name"],
+#                       prod[8]["product_name"],
+#                       prod[8]["location"],
+#                       prod[8]["firm_efficiency"],
+#                       prod[8]["image_path"]
+#                       )
+# firm10 = ProducitonTab(prod_screen.production_notebook,
+#                        prod[9]["firm_name"],
+#                        prod[9]["product_name"],
+#                        prod[9]["location"],
+#                        prod[9]["firm_efficiency"],
+#                        prod[9]["image_path"]
+#                        )
 
 prod_screen.mainloop()

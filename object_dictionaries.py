@@ -1,8 +1,8 @@
 # raw materials
 materials = [ {"name": "Coal",
                             "image_path": "C:/Users/colet/OneDrive/Desktop/rgo_metal_image.png",
-                            "operation_time":"50",
-                            "operation_efficiency": "0.4"},
+                            "operation_time":"30",
+                            "operation_efficiency": "0"},
                            {"name": "Oil",
                             "image_path": "C:/Users/colet/OneDrive/Desktop/rgo_metal_image.png",
                             "operation_time": "30",
@@ -80,4 +80,13 @@ prod = [                   {"firm_name": "1",
 
 
 # Scenario graph :)
-real_events_graph = []
+real_events_graph = {"The Great Famine of Ireland (1845-1852)": ["The Debt Crisis of the 1980s", "The Asian Financial Crisis (1997)"],
+                     "The Debt Crisis of the 1980s": ["The Bangladesh Garment Factory Collapse (2013)", "The Argentine Economic Crisis (1998-2002)"],
+                     "The Bangladesh Garment Factory Collapse (2013)": ["The Greek Debt Crisis (2009)"],
+                     "The Asian Financial Crisis (1997)":["The Argentine Economic Crisis (1998-2002)", "The Global Financial Crisis (2007-2008)"],
+                     "The Argentine Economic Crisis (1998-2002)": ["The Greek Debt Crisis (2009)", "The 1973 Oil Crisis"],
+                     "The Greek Debt Crisis (2009)": ["The Great Depression (1929)"],
+                     "The Great Depression (1929)": ["The Global Financial Crisis (2007-2008)"],
+                     "The Global Financial Crisis (2007-2008)": ["The 1973 Oil Crisis"],
+                     "The 1973 Oil Crisis": []
+}
