@@ -92,8 +92,19 @@ class ProjectTab(tk.Frame):
 # main
 tech_screen = TechnologyScreen()
 
+# 1st level
 p1 = ProjectTab(tech_screen.mech_notebook, "Agricultural Machinery", "this is the first project", 40, 0, "m")
-p2 = ProjectTab(tech_screen.infra_notebook, "Tunnel", "this is the second project", 40, 0, "m")
-p3 = ProjectTab(tech_screen.chem_notebook, "Electricity", "this is the third project", 40, 0, "m")
+p2 = ProjectTab(tech_screen.infra_notebook, "Rural Road & Bridge Expansion", "this is the second project", 40, 0, "m")
+p3 = ProjectTab(tech_screen.chem_notebook, "Affordable Biofuel Production", "this is the third project", 40, 0, "m")
+
+# 2nd level
+p4 = ProjectTab(tech_screen.mech_notebook, "Semi-Automated Manufacturing Plants", "this is the 4th project", 40, 0, "m")
+p5 = ProjectTab(tech_screen.infra_notebook, "Smart Grid & Public Transit Upgrade", "this is the 5th project", 40, 0, "m")
+p6 = ProjectTab(tech_screen.chem_notebook, "Solar & Wind Energy", "this is the 6th project", 40, 0, "m")
+
+# 3rd level
+
+project_list = [p1, p2, p3, p4, p5, p6]
+
 
 tech_screen.mainloop()

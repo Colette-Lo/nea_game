@@ -86,5 +86,8 @@ class ScenarioDecisionScreen(Screen):
         pass
 
 # Main
+
+# Determine what scenario to give the player
+
 solve_case = ScenarioDecisionScreen("hello", "bye", "hi", "goodbye")
 solve_case.mainloop()

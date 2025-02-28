@@ -6,7 +6,7 @@ from PIL import Image, ImageTk
 from screens import Screen
 import time
 from object_dictionaries import materials
-from products import *
+from game_objects import *
 
 
 class ResourceGatheringScreen(Screen):

@@ -2,6 +2,12 @@ import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
 from screens import Screen
+from profile_screen import ProfileScreen
+from trade_screen import TradeScreen
+from technology_screen import TechnologyScreen
+from production_screen import ProductionScreen
+from budget_screen import BudgetScreen
+from resource_gathering_screen import ResourceGatheringScreen
 
 # # Create window
 # window = tk.Tk()
@@ -140,7 +146,8 @@ class HomePageScreen(Screen):
                                          text="Scenarios",
                                          font=('Arial', 17),
                                          width=10,
-                                         height=2
+                                         height=2,
+                                         command=self.click_scenario
                                          )
         self.scenario_button.pack(anchor="w")
 
@@ -155,22 +162,22 @@ class HomePageScreen(Screen):
 
         self.var = tk.IntVar()
         # Menu buttons
-        self.prof_btn = tk.Button(self.menu_frame, text="Profile", font=('Arial', 17), width=19, height=2)
+        self.prof_btn = tk.Button(self.menu_frame, text="Profile", font=('Arial', 17), width=19, height=2, command=self.click_prof)
         self.prof_btn.grid(row=0, column=0)
 
-        self.trade_btn = tk.Button(self.menu_frame, text="Trade", font=('Arial', 17), width=19, height=2)
+        self.trade_btn = tk.Button(self.menu_frame, text="Trade", font=('Arial', 17), width=19, height=2, command=self.click_trade)
         self.trade_btn.grid(row=0, column=1)
 
-        self.tech_btn = tk.Button(self.menu_frame, text="Technology", font=('Arial', 17), width=19, height=2)
+        self.tech_btn = tk.Button(self.menu_frame, text="Technology", font=('Arial', 17), width=19, height=2, command=self.click_tech)
         self.tech_btn.grid(row=0, column=2)
 
-        self.prod_btn = tk.Button(self.menu_frame, text="Production", font=('Arial', 17), width=19, height=2)
+        self.prod_btn = tk.Button(self.menu_frame, text="Production", font=('Arial', 17), width=19, height=2, command=self.click_prod)
         self.prod_btn.grid(row=0, column=3)
 
-        self.budget_btn = tk.Button(self.menu_frame, text="Budget", font=('Arial', 17), width=19, height=2)
+        self.budget_btn = tk.Button(self.menu_frame, text="Budget", font=('Arial', 17), width=19, height=2, command=self.click_budget)
         self.budget_btn.grid(row=0, column=4)
 
-        self.resource_btn = tk.Button(self.menu_frame, text="Resource Gathering", font=('Arial', 17), width=19, height=2)
+        self.resource_btn = tk.Button(self.menu_frame, text="Resource Gathering", font=('Arial', 17), width=19, height=2, command=self.click_resource)
         self.resource_btn.grid(row=0, column=5)
 
     def show_map(self):
@@ -192,15 +199,38 @@ class HomePageScreen(Screen):
     def click_scenario(self):
         pass
 
-    def click_menu(self):
-        pass
+    # def click_menu(self):
+    #     pass
 
+    def click_prof(self):
+        prof_screen = ProfileScreen("nhk", "C:/Users/colet/OneDrive/Desktop/flag_1.png", "12345", [12, 123, 1234, 123, 1234, 1234])
+        prof_screen.mainloop()
+
+    def click_trade(self):
+        trad_screen = TradeScreen([], [], [])
+        trad_screen.mainloop()
+
+    def click_tech(self):
+        tech_screen = TechnologyScreen()
+        tech_screen.mainloop()
+
+    def click_prod(self):
+        prod_screen = ProductionScreen()
+        prod_screen.mainloop()
+
+    def click_budget(self):
+        budg_screen = BudgetScreen("123", "456", "789")
+        budg_screen.mainloop()
+
+    def click_resource(self):
+        rgo_screen = ResourceGatheringScreen()
+        rgo_screen.mainloop()
 
 
 ### tested. ####
 ## made an alternative method for the menu bar just in case ##
 ##### CHANGE SCREENSHOTS FOR MILESTONE 1
-##### THERE IS NO RESOURCE SCREEN WHY DID YOU ADD RESOURCES TO THE LIST
-##### THERE IS ALSO NO FIRMS. JUST TRADE, AND PRODUCTION. THEY ARE SEPARATED.
+##### NO RESOURCE SCREEN
+##### ALSO NO FIRMS. JUST TRADE, AND PRODUCTION. THEY ARE SEPARATED.
 try_home = HomePageScreen()
 try_home.mainloop()
