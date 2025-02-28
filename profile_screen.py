@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import PhotoImage
-# from PIL import Image, ImageTk
+from PIL import Image, ImageTk
 from screens import Screen
 
 # # Country profile
@@ -239,4 +239,5 @@ class ProfileScreen(Screen):
 # , [12, 123, 1234, 123, 1234, 1234]
 tryscreen = ProfileScreen("nhk", "C:/Users/colet/OneDrive/Desktop/flag_1.png", "12345")
 
-# tryscreen.mainloop()
+
+tryscreen.mainloop()
