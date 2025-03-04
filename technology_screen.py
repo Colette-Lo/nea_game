@@ -88,6 +88,15 @@ class ProjectTab(tk.Frame):
         self.research_btn = tk.Button(self, text=("Research"), font=('Arial', 14))
         self.research_btn.pack(padx=10, pady=10, anchor='s')
 
+    def cal_invested(self):
+        pass
+
+    def research(self, invested):
+        pass
+
+    def is_completed(self):
+        pass
+
 
 # main
 tech_screen = TechnologyScreen()

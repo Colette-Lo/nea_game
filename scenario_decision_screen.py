@@ -1,5 +1,6 @@
 import tkinter as tk
 from screens import Screen
+import random
 
 # Scenario graph :)
 real_events_graph = {"The Great Famine of Ireland (1845-1852)": ["The Debt Crisis of the 1980s", "The Asian Financial Crisis (1997)"],
@@ -88,6 +89,8 @@ class ScenarioDecisionScreen(Screen):
 # Main
 
 # Determine what scenario to give the player
+def choose_case():
+    pass
 
 solve_case = ScenarioDecisionScreen("hello", "bye", "hi", "goodbye")
 solve_case.mainloop()

@@ -157,7 +157,7 @@ class ProfileScreen(Screen):
         # update the value to be display as the GDP
         self.values[5] = new
         # a print statement for testing
-        print("GDP:",self.values[5])
+        # print("GDP:",self.values[5])
 
     def cal_unemployment(self, scale):
         # the limit for unemployment rate is 0% to 100%
@@ -174,7 +174,7 @@ class ProfileScreen(Screen):
             else:
                 self.values[4] = 100
         # a print statement for testing
-        print("Unemployment:", self.values[4])
+        # print("Unemployment:", self.values[4])
 
     def cal_inflation(self, scale):
         # store the current value
@@ -184,7 +184,7 @@ class ProfileScreen(Screen):
         # update the value to be display as the inflation rate
         self.values[3] = new
         # a print statement for testing
-        print("Inflation", self.values[3])
+        # print("Inflation", self.values[3])
 
     def cal_happiness(self, scale):
         # the limit for the happiness index is 0 to 10
@@ -201,7 +201,7 @@ class ProfileScreen(Screen):
             else:
                 self.values[2] = 10
         # a print statement for testing
-        print("Happiness index:", self.values[2])
+        # print("Happiness index:", self.values[2])
 
     def cal_literacy(self, scale):
         # the limit for literacy is 0% to 100%
@@ -218,7 +218,7 @@ class ProfileScreen(Screen):
             else:
                 self.values[1] = 100
         # a print statement for testing
-        print("Literacy rate", self.values[1])
+        # print("Literacy rate", self.values[1])
 
     def cal_life_expectancy(self, scale):
         # the minimum age is 0 years old
@@ -234,10 +234,9 @@ class ProfileScreen(Screen):
             else:
                 self.values[0] = 0.5
         # a print statement for testing
-        print("Life expectancy:", self.values[0])
+        # print("Life expectancy:", self.values[0])
 
 # , [12, 123, 1234, 123, 1234, 1234]
 tryscreen = ProfileScreen("nhk", "C:/Users/colet/OneDrive/Desktop/flag_1.png", "12345")
-
 
 tryscreen.mainloop()
