@@ -36,7 +36,7 @@ class ResourceTab(tk.Frame):
 
         # storing the parameters
         self.resource_name = mat_name
-        self.total_time = int(op_time)
+        self.total_time = op_manager.operations[self.resource_name]['total_time']
         self.efficiency = float(op_efficiency)
         self.cost = extract_cost
         self.total_output = 0.0
@@ -59,7 +59,7 @@ class ResourceTab(tk.Frame):
         self.time_label = ttk.Label(self, text="Time(minutes): " + str(self.total_time/60), font=('Arial', 16))
         self.time_label.pack(padx=10, pady=20, anchor="w")
 
-        self.efficiency_label = ttk.Label(self, text="Efficiency: " + op_efficiency, font=('Arial', 16))
+        self.efficiency_label = ttk.Label(self, text="Efficiency: " + str(op_efficiency), font=('Arial', 16))
         self.efficiency_label.pack(padx=10, pady=20, anchor="w")
 
         self.output_label = ttk.Label(self, text="Total output: " + str(self.total_output), font=('Arial', 16))
@@ -89,8 +89,10 @@ class ResourceTab(tk.Frame):
         if not op_manager.operations[self.resource_name]["status"]:
             # start gathering in the manager class
             op_manager.start_gathering(self.resource_name)
+            # testing
+            print(op_manager.operations[self.resource_name]["start_time"])
             # letting the player know
-            messagebox.showinfo("Operation started", ("Collect after:"+ str(self.total_time//60)+ "minutes"))
+            messagebox.showinfo("Operation started", ("Collect after:"+ str(self.total_time/60)+ "minutes"))
         else:
             # letting the player know that the operation has already been started
             messagebox.showwarning("Warning", "Resource Gathering Operation is already active")
@@ -110,46 +112,46 @@ class ResourceTab(tk.Frame):
 # main
 rgo_screen = ResourceGatheringScreen()
 coal_tab = ResourceTab(rgo_screen.rgo_notebook,
-                       materials[0]["name"],
-                       materials[0]["image_path"],
-                       materials[0]["operation_time"],
-                       materials[0]["operation_efficiency"],
+                       "Coal",
+                       materials["Coal"]["image_path"],
+                       materials["Coal"]["operation_time"],
+                       materials["Coal"]["operation_efficiency"],
                        coal.ex_cost
                        )
-oil_tab = ResourceTab(rgo_screen.rgo_notebook,
-                       materials[1]["name"],
-                       materials[1]["image_path"],
-                       materials[1]["operation_time"],
-                       materials[1]["operation_efficiency"],
-                      oil.ex_cost
-                       )
-crops_tab = ResourceTab(rgo_screen.rgo_notebook,
-                        materials[2]["name"],
-                        materials[2]["image_path"],
-                        materials[2]["operation_time"],
-                        materials[2]["operation_efficiency"],
-                        crops.ex_cost
-                        )
-metals_tab = ResourceTab(rgo_screen.rgo_notebook,
-                         materials[3]["name"],
-                         materials[3]["image_path"],
-                         materials[3]["operation_time"],
-                         materials[3]["operation_efficiency"],
-                         metals.ex_cost
-                         )
-timber_tab = ResourceTab(rgo_screen.rgo_notebook,
-                         materials[4]["name"],
-                         materials[4]["image_path"],
-                         materials[4]["operation_time"],
-                         materials[4]["operation_efficiency"],
-                         timber.ex_cost
-                         )
-wool_tab = ResourceTab(rgo_screen.rgo_notebook,
-                       materials[5]["name"],
-                       materials[5]["image_path"],
-                       materials[5]["operation_time"],
-                       materials[5]["operation_efficiency"],
-                       wool.ex_cost
-                       )
+# oil_tab = ResourceTab(rgo_screen.rgo_notebook,
+#                        materials[1]["name"],
+#                        materials[1]["image_path"],
+#                        materials[1]["operation_time"],
+#                        materials[1]["operation_efficiency"],
+#                       oil.ex_cost
+#                        )
+# crops_tab = ResourceTab(rgo_screen.rgo_notebook,
+#                         materials[2]["name"],
+#                         materials[2]["image_path"],
+#                         materials[2]["operation_time"],
+#                         materials[2]["operation_efficiency"],
+#                         crops.ex_cost
+#                         )
+# metals_tab = ResourceTab(rgo_screen.rgo_notebook,
+#                          materials[3]["name"],
+#                          materials[3]["image_path"],
+#                          materials[3]["operation_time"],
+#                          materials[3]["operation_efficiency"],
+#                          metals.ex_cost
+#                          )
+# timber_tab = ResourceTab(rgo_screen.rgo_notebook,
+#                          materials[4]["name"],
+#                          materials[4]["image_path"],
+#                          materials[4]["operation_time"],
+#                          materials[4]["operation_efficiency"],
+#                          timber.ex_cost
+#                          )
+# wool_tab = ResourceTab(rgo_screen.rgo_notebook,
+#                        materials[5]["name"],
+#                        materials[5]["image_path"],
+#                        materials[5]["operation_time"],
+#                        materials[5]["operation_efficiency"],
+#                        wool.ex_cost
+#                        )
 
 rgo_screen.mainloop()

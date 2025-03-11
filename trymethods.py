@@ -1,7 +1,7 @@
 # # import all classes/methods
 # # from the tkinter module
 import time
-
+from object_dictionaries import *
 #
 # # Global variables
 # active = False
@@ -41,7 +41,8 @@ class RGOManager():
         # dictionary of all the operation
         # resource: {start_time, total_time, period_time, status, gathered, period_output, total_mat}
         self.operations = {
-            "Coal": {"status": False, "collectable": False, "start_time": 0.0, "total_time": 0.0, "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
+            "Coal": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Coal"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
+            "Oil": {}
         }
 
     # checking if operation is active
@@ -59,25 +60,34 @@ class RGOManager():
     # adjusting the time requirements before starting a new operation
     def get_op_time(self, resource_name,  efficiency):
         self.operations[resource_name]["total_time"] *= (1 - efficiency)
-        self.operations[resource_name]["period_time"] = round(self.operations[resource_name]["total_time"] // 5)
+        self.operations[resource_name]["period_time"] = round(self.operations[resource_name]["total_time"] / 5)
 
     # adjusting the period output before starting a new operation
     def get_period_output(self, resource_name, efficiency):
         self.operations[resource_name]["period_output"] = round(self.operations[resource_name]["period_output"] * (1+efficiency), 1)
 
+    #####################################
+
     # when the start button is clicked
     def start_gathering(self, resource_name):
         self.operations[resource_name]["status"]  = True
         self.record_start(resource_name)
+        self.get_op_time(resource_name, 1)
+
 
     # keep checking
     def get_current_progress(self, resource_name):
-        current_time = self.get_current()
-        time_passed = current_time - self.operations[resource_name]["start_time"]
         if self.operations[resource_name]["period_count"] < 5:
+            current_time = self.get_current()
+            time_passed = current_time - self.operations[resource_name]["start_time"]
+            # testing
+            print(time_passed)
+            print(self.operations[resource_name]["period_time"])
             if time_passed >= self.operations[resource_name]["period_time"]:
                 self.operations[resource_name]["current_gathered"] += self.operations[resource_name]["period_output"]
                 self.operations[resource_name]["period_count"] += 1
+                # testing
+                print(self.operations[resource_name]["period_count"])
         else:
             self.operations[resource_name]["collectable"] = True
             self.operations[resource_name]["period_count"] = 0
