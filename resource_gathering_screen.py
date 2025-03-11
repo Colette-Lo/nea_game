@@ -7,7 +7,9 @@ from screens import Screen
 import time
 from object_dictionaries import materials
 from game_objects import *
+from trymethods import RGOManager
 
+op_manager = RGOManager()
 
 class ResourceGatheringScreen(Screen):
     def __init__(self):
@@ -84,44 +86,24 @@ class ResourceTab(tk.Frame):
         mat_lbl.pack(anchor="e", padx=10, pady=10)
 
     def click_start(self):
-        if not self.is_active:
-            self.is_active = True
-            self.finished = False
-            # recording the start time
-            self.start_time = time.time()
-            # adjusting the actual time needed
-            self.total_time = self.total_time * (1 - self.efficiency)
-            messagebox.showinfo("Operation started", ("Collect after:", int(self.total_time//60), "minutes"))
+        if not op_manager.operations[self.resource_name]["status"]:
+            # start gathering in the manager class
+            op_manager.start_gathering(self.resource_name)
+            # letting the player know
+            messagebox.showinfo("Operation started", ("Collect after:"+ str(self.total_time//60)+ "minutes"))
         else:
+            # letting the player know that the operation has already been started
             messagebox.showwarning("Warning", "Resource Gathering Operation is already active")
 
-    def progress(self):
-        # total collected initially is 0
-        total_collected = 0.0
-        # calculating output that should be rewarded
-        self.period_output = self.period_output * (1 + self.efficiency)
-        # only check when not finished collecting
-        if not self.finished:
-            # recording the current time
-            current = time.time()
-            # checking the amount of time passed
-            if (current - self.start_time) >= self.total_time:
-                # task is finished
-                self.finished = True
-                # return the amount earned
-                total_collected += self.period_output
-                return total_collected
-        return total_collected
+    # Scheduling progress updates every second
+        self.after(1000, op_manager.get_current_progress(self.resource_name), self.resource_name)
 
 
     def click_collect(self):
-        new_gathered = self.progress()
-        if new_gathered != 0.0:
+        if op_manager.operations[self.resource_name]["collectable"]:
             # add gathered to total material has ever been collected
-            self.total_output += new_gathered
-            # add this to supply
-            # self.resource_name.supply += new_gathered
-            messagebox.showinfo("Operation completed", ("You have collected:", str(new_gathered)))
+            op_manager.collect(self.resource_name)
+            messagebox.showinfo("Operation completed", ("You have collected:"+ self.resource_name))
         else:
             messagebox.showwarning("Warning", "Cannot collect the resource yet")
 

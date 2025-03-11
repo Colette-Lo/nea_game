@@ -44,9 +44,10 @@ class RawMaterial(Product):
         self.name = name
         self.price = base
         self.supply = supply
-        self.modifier = 1
+        self.modifier = 0.0
         self.unit_cost = 0.0
         self.ex_cost = 0.0
+
 
     def update_ex_cost(self, add_quantity):
         additional = add_quantity
