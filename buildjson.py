@@ -6,6 +6,8 @@ import json
 # solution options, which include:
 # description of the solutions, variables that will be adjusted and the modifiers.
 
+# lic_events.py has ALL events now #
+
 # low income level events
 lic_events_dict = {"lic_events": [# event list
     {# one event ## The Great Famine of Ireland (1845-1852)
