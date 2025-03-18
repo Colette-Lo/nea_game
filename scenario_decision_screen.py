@@ -1,26 +1,30 @@
 import tkinter as tk
 from screens import Screen
 from profile_screen import *
-from load_values import load_events
 import random
 
 
 # Scenario graph :)
-real_events_graph = {"The Great Famine of Ireland (1845-1852)": ["The Debt Crisis of the 1980s", "The Asian Financial Crisis (1997)"],
-                     "The Debt Crisis of the 1980s": ["The Bangladesh Garment Factory Collapse (2013)", "The Argentine Economic Crisis (1998-2002)"],
-                     "The Bangladesh Garment Factory Collapse (2013)": ["The Greek Debt Crisis (2009)"],
-                     "The Asian Financial Crisis (1997)":["The Argentine Economic Crisis (1998-2002)", "The Global Financial Crisis (2007-2008)"],
-                     "The Argentine Economic Crisis (1998-2002)": ["The Greek Debt Crisis (2009)", "The 1973 Oil Crisis"],
-                     "The Greek Debt Crisis (2009)": ["The Great Depression (1929)"],
-                     "The Great Depression (1929)": ["The Global Financial Crisis (2007-2008)"],
-                     "The Global Financial Crisis (2007-2008)": ["The 1973 Oil Crisis"],
-                     "The 1973 Oil Crisis": []
-}
+# real_events_graph = {"The Great Famine of Ireland (1845-1852)": ["The Debt Crisis of the 1980s", "The Asian Financial Crisis (1997)"],
+#                      "The Debt Crisis of the 1980s": ["The Bangladesh Garment Factory Collapse (2013)", "The Argentine Economic Crisis (1998-2002)"],
+#                      "The Bangladesh Garment Factory Collapse (2013)": ["The Greek Debt Crisis (2009)"],
+#                      "The Asian Financial Crisis (1997)":["The Argentine Economic Crisis (1998-2002)", "The Global Financial Crisis (2007-2008)"],
+#                      "The Argentine Economic Crisis (1998-2002)": ["The Greek Debt Crisis (2009)", "The 1973 Oil Crisis"],
+#                      "The Greek Debt Crisis (2009)": ["The Great Depression (1929)"],
+#                      "The Great Depression (1929)": ["The Global Financial Crisis (2007-2008)"],
+#                      "The Global Financial Crisis (2007-2008)": ["The 1973 Oil Crisis"],
+#                      "The 1973 Oil Crisis": []
+# }
+#
+# done_real_case = ["The Great Famine of Ireland (1845-1852)"]
+#
+# # loading events from json
+# events_values = load_values('all_events.json')
 
-done_real_case = []
+class DecisionManager():
+    def __init__(self):
+        self.done_cases = ["The Great Famine of Ireland (1845-1852)"]
 
-# loading events from json
-events_values = load_events('lic_events.json')
 
 class ScenarioDecisionScreen(Screen):
     def __init__(self, content, op1, op2, op3):
@@ -95,45 +99,6 @@ class ScenarioDecisionScreen(Screen):
         pass
 
 # Main
-
-def find_case_level(keys_value):
-    levels = ["lic_events", "mic_events", "hic_events"]
-    for i in range(3):
-        event_name = events_values[levels[i]]["name"]
-        if event_name == keys_value:
-            last_level = i
-    return last_level
-
-def find_next_event(latest, target_lvl):
-    found = False
-    while not found:
-        for child_case in real_events_graph[latest]:
-            child_case_lvl = find_case_level(child_case)
-            if child_case_lvl == target_lvl:
-                found = True
-    return child_case
-
-
-# Determine what scenario to give the player
-def choose_case():
-    # is this the first case
-    if len(done_real_case) == 0:
-        # randomly choosing from 3 real cases
-        case_index = random.randint(0, 2)
-        next_event = events_values["lic_events"][case_index]
-        done_real_case.append(next_event["lic_events"]["name"])
-    else:
-        # find the level the last case belongs to
-        last_event_name = done_real_case[-1]
-        case_level = find_case_level(events_values, last_event_name)
-        # current level
-        current_level = tryscreen.level
-
-        if case_level == current_level:
-            next_event = real_events_graph[last_event_name]
-
-
-    pass
-
-solve_case = ScenarioDecisionScreen("hello", "bye", "hi", "goodbye")
-solve_case.mainloop()
+case_manager = DecisionManager()
+# solve_case = ScenarioDecisionScreen("hello", "bye", "hi", "goodbye")
+# solve_case.mainloop()

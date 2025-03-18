@@ -444,7 +444,7 @@ hic_events_dict = {"hic_events": [# event list
                }
 
 # write to a json file
-with open("lic_events.json", "w") as file:
+with open("all_events.json", "w") as file:
     json.dump(lic_events_dict, file, indent=4)
 with open("mic_events.json", "w") as file:
     json.dump(mic_events_dict, file, indent=4)
