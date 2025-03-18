@@ -1,6 +1,7 @@
 {
     "lic_events": [
-        {   "name": "The Great Famine of Ireland (1845-1852)",
+        {
+            "name": "The Great Famine of Ireland (1845-1852)",
             "event_description": "A potato crop disease has been going around, causing a large scale of crop failure. The majority of the population depends on this plant as both their source of income and food.",
             "context": " The Great Famine of Ireland (1845-1852): A potato crop failure, worsened by British policies, led to mass starvation and the death of about a million people. The famine caused widespread emigration, drastically reducing Ireland\u2019s population and leaving a lasting impact on its economy and its relationship with Britain.",
             "solution_options": [
@@ -29,7 +30,8 @@
                 }
             ]
         },
-        {   "name": "The Debt Crisis of the 1980s",
+        {
+            "name": "The Debt Crisis of the 1980s",
             "event_description": "Debt can be damaging to the economy when borrowing excessively from international lenders, especially when global interest rates are rising. What would you do to reduce the pressure on finance?",
             "context": "The Debt Crisis of the 1980s: Many developing countries, especially in Latin America, struggled with massive debt due to excessive borrowing and rising interest rates. This led to economic instability, hyperinflation, and social unrest, requiring international intervention to restructure debt and impose austerity measures.",
             "solution_options": [
@@ -56,7 +58,8 @@
                 }
             ]
         },
-        {   "name": "The Bangladesh Garment Factory Collapse (2013)",
+        {
+            "name": "The Bangladesh Garment Factory Collapse (2013)",
             "event_description": "A large factory has collapsed. Most of the workers inside the building were injured severely, many of them did not survive. Majority of the labour force and firms in the manufacturing sector is extremely concerned.",
             "context": "The Bangladesh Garment Factory Collapse (2013): The collapse of Rana Plaza, a building housing garment factories, killed over 1,100 workers and exposed unsafe labor conditions. The disaster highlighted the dangers of global supply chains prioritizing low costs over worker safety and ethical practices.",
             "solution_options": [
@@ -80,7 +83,8 @@
                 }
             ]
         },
-        {   "name": null,
+        {
+            "name": null,
             "event_description": "A major river just flooded yesterday, destroying many crops that were about to be harvested. There could be food shortages and rising prices for food in the coming months.",
             "context": null,
             "solution_options": [
@@ -104,7 +108,8 @@
                 }
             ]
         },
-        {   "name": null,
+        {
+            "name": null,
             "event_description": "Young people who grew up in rural area have very little access to career opportunities, resulting in high unemployment in those areas.",
             "context": null,
             "solution_options": [
@@ -131,7 +136,8 @@
                 }
             ]
         },
-        {   "name": null,
+        {
+            "name": null,
             "event_description": "An unknown infectious disease is rapidly spreading in the country. The country currently does not have the knowledge and resources to treat patients who are suffering from it.",
             "context": null,
             "solution_options": [
@@ -158,8 +164,9 @@
             ]
         }
     ],
-        "mic_events": [
-        {   "name": "The Asian Financial Crisis (1997)",
+    "mic_events": [
+        {
+            "name": "The Asian Financial Crisis (1997)",
             "event_description": "A region experiencing rapid economic growth suddenly faces a financial collapse as investor confidence plummets.",
             "context": "The Asian Financial Crisis (1997): A sudden loss of investor confidence triggers a financial meltdown across several Asian economies. Currency values plummet, stock markets crash, and foreign capital rapidly exits, leading to deep recessions. Governments scramble to stabilize their economies, turning to international institutions for emergency assistance.",
             "solution_options": [
@@ -183,7 +190,8 @@
                 }
             ]
         },
-        {   "name": "The Argentine Economic Crisis (1998-2002)",
+        {
+            "name": "The Argentine Economic Crisis (1998-2002)",
             "event_description": "The country facing years of heavy borrowing and currency instability plunges into a severe economic crisis, leading to widespread public outrage and protests erupt",
             "context": "The Argentine Economic Crisis (1998-2002): Years of heavy borrowing and currency instability push Argentina into a severe economic crisis. Inflation skyrockets, unemployment soars, and bank runs lead to financial chaos. Drastic government measures fail to restore confidence, sparking mass protests and political upheaval.",
             "solution_options": [
@@ -207,7 +215,8 @@
                 }
             ]
         },
-        {   "name": "The Greek Debt Crisis (2009)",
+        {
+            "name": "The Greek Debt Crisis (2009)",
             "event_description": "A nation burdened by massive debt struggles to meet its financial obligations. As public frustration grows over spending cuts and economic hardship, leaders must find a path to recovery while maintaining social stability.",
             "context": "The Greek Debt Crisis (2009): Greece's massive debt burden and economic mismanagement push the country toward financial collapse. Investors demand higher interest rates, making it harder to repay loans, forcing Greece to seek international bailouts. Austerity measures follow, leading to widespread protests, economic hardship, and political instability.",
             "solution_options": [
@@ -233,7 +242,8 @@
                 }
             ]
         },
-        {   "name": null,
+        {
+            "name": null,
             "event_description": "Inflation and rising cost of living has been stressing people. Many are finding it difficult to afford goods and services that are necessary for daily life.",
             "context": null,
             "solution_options": [
@@ -257,7 +267,8 @@
                 }
             ]
         },
-        {   "name": null,
+        {
+            "name": null,
             "event_description": "The growth of public debt is accelerating. Pressure on public finance is very high.",
             "context": null,
             "solution_options": [
@@ -281,7 +292,8 @@
                 }
             ]
         },
-        {   "name": null,
+        {
+            "name": null,
             "event_description": "Income inequality is getting worse, and people are angry in the country, that they are prepared to riot.",
             "context": null,
             "solution_options": [
@@ -307,7 +319,8 @@
         }
     ],
     "hic_events": [
-        {   "name": "The Great Depression (1929)",
+        {
+            "name": "The Great Depression (1929)",
             "event_description": "A sudden financial collapse triggers a severe economic downturn, causing businesses to fail, banks to close, and unemployment to skyrocket. With industries struggling and millions facing poverty, consumer confidence plummets, deepening the crisis.",
             "context": "The Great Depression (1929): A massive stock market crash triggers a global economic collapse, leading to widespread bank failures, business closures, and soaring unemployment. Industrial production plummets, and millions of people struggle with poverty and homelessness. Governments attempt various recovery measures, but the crisis lingers for years, reshaping economic policies worldwide.",
             "solution_options": [
@@ -331,7 +344,8 @@
                 }
             ]
         },
-        {   "name": "The Global Financial Crisis (2007-2008)",
+        {
+            "name": "The Global Financial Crisis (2007-2008)",
             "event_description": "",
             "context": "The Global Financial Crisis (2007-2008): A housing market collapse in the U.S. sparks a global financial meltdown, as major banks and institutions face insolvency. Stock markets crash, unemployment rises, and economies worldwide enter deep recessions. Governments and central banks intervene with massive bailouts and stimulus programs to prevent total collapse.",
             "solution_options": [
@@ -355,7 +369,8 @@
                 }
             ]
         },
-        {   "name": "The 1973 Oil Crisis",
+        {
+            "name": "The 1973 Oil Crisis",
             "event_description": "",
             "context": "The 1973 Oil Crisis: A sudden oil embargo by major producers causes global oil prices to skyrocket, leading to fuel shortages and economic turmoil. Inflation surges, industries struggle, and many economies fall into recession. Governments implement energy-saving measures and seek alternative energy sources to reduce dependence on foreign oil.",
             "solution_options": [
@@ -379,7 +394,8 @@
                 }
             ]
         },
-        {   "name": null,
+        {
+            "name": null,
             "event_description": "A country experiences slow economic growth for an extended period, with low productivity and weak investment. Wages stagnate, unemployment remains high, and businesses struggle to expand.",
             "context": null,
             "solution_options": [
@@ -403,7 +419,8 @@
                 }
             ]
         },
-        {   "name": null,
+        {
+            "name": null,
             "event_description": "Advancements in technology and automation replace many traditional jobs, leaving a large portion of the workforce unemployed. Many struggle to find new opportunities, leading to economic inequality.",
             "context": null,
             "solution_options": [
@@ -427,7 +444,8 @@
                 }
             ]
         },
-        {   "name": null,
+        {
+            "name": null,
             "event_description": "Widespread industrial activity and weak regulations lead to severe pollution, harming public health and ecosystems. Air, water, and soil contamination drive climate change and resource shortages, threatening economic stability.",
             "context": null,
             "solution_options": [

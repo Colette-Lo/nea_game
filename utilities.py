@@ -1,5 +1,6 @@
 import json
 import random
+
 from profile_screen import tryscreen
 from scenario_decision_screen import case_manager
 
@@ -84,7 +85,7 @@ def choose_case(solved, event_list, case_graph, levels_list):
 # Testing section
 
 # Calls
-print(done_real_case)
-try_choose_next = choose_case(done_real_case, events_values, real_events_graph, levels)
-print(try_choose_next)
-# print(events_values)
+# print(done_real_case)
+# try_choose_next = choose_case(done_real_case, events_values, real_events_graph, levels)
+# print(try_choose_next)
+# # print(events_values)
