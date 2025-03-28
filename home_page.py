@@ -9,130 +9,6 @@ from production_screen import ProductionScreen
 from budget_screen import BudgetScreen
 from resource_gathering_screen import ResourceGatheringScreen
 
-# # Create window
-# window = tk.Tk()
-# window.geometry("1920x1080")
-# window.title("Country Simulation")
-#
-# # Profile button
-# profile_button = tk.Button(window,
-#                          text="Profile",
-#                          font=('Arial', 20),
-#                          width=10,
-#                          height=2
-#                          )
-# profile_button.pack(anchor='w')
-#
-# # Menu bar
-# menu_bar = tk.Frame(window)
-# menu_bar.columnconfigure(0, weight=1) # One line for one column.
-#
-# # Add items to the menu bar as buttons.
-# resources_btn = tk.Button(menu_bar,
-#                           text="Resources",
-#                           font=('Arial', 17),
-#                           width=15,
-#                           height=2
-#                           )
-# resources_btn.grid(row=0,
-#                    column=0,
-#                    sticky=tk.W+tk.E
-#                    )
-#
-# tp_btn = tk.Button(menu_bar,
-#                    text="Trade & Production",
-#                    font=('Arial', 17),
-#                    width=15,
-#                    height=2
-#                    )
-# tp_btn.grid(row=0,
-#             column=1,
-#             sticky=tk.W+tk.E
-#             )
-#
-# tech_btn = tk.Button(menu_bar,
-#                      text="Technology",
-#                      font=('Arial', 17),
-#                      width=15,
-#                      height=2
-#                      )
-# tech_btn.grid(row=0,
-#               column=2,
-#               sticky=tk.W+tk.E
-#               )
-#
-# firms_btn = tk.Button(menu_bar,
-#                       text="Firms",
-#                       font=('Arial', 17),
-#                       width=15,
-#                       height=2
-#                       )
-# firms_btn.grid(row=0,
-#                column=3,
-#                sticky=tk.W+tk.E
-#                )
-#
-# budget_btn = tk.Button(menu_bar,
-#                        text="Budget",
-#                        font=('Arial', 17),
-#                        width=15,
-#                        height=2
-#                        )
-# budget_btn.grid(row=0,
-#                 column=4,
-#                 sticky=tk.W+tk.E
-#                 )
-#
-# rgo_btn = tk.Button(menu_bar,
-#                     text="Resource gathering",
-#                     font=('Arial', 17),
-#                     width=15,
-#                     height=2
-#                     )
-# rgo_btn.grid(row=0,
-#              column=5,
-#              sticky=tk.W+tk.E
-#              )
-#
-# menu_bar.pack()
-#
-# # Scenario button
-# scenarios_button = tk.Button(window,
-#                          text="Scenarios",
-#                          font=('Arial', 20),
-#                          width=10,
-#                          height=2
-#                          )
-# scenarios_button.pack(anchor='w')
-#
-# # Display map
-# open_map = Image.open("C:/Users/colet/OneDrive/Desktop/game_map.png")
-# map_file = ImageTk.PhotoImage(open_map)
-# map_lbl = tk.Label(window, image = map_file)
-# map_lbl.pack(fill='both', expand=True)
-#
-# window.mainloop()
-
-# def alt_make_menu(self):
-#     # Add items to the menu bar as buttons.
-#     resources_btn = tk.Button(self.menu_frame, text="Resources", font=('Arial', 17), width=15, height=2)
-#     resources_btn.grid(row=0, column=0, sticky=tk.W + tk.E)
-#
-#     tp_btn = tk.Button(self.menu_frame, text="Trade & Production", font=('Arial', 17), width=15, height=2)
-#     tp_btn.grid(row=0, column=1, sticky=tk.W + tk.E)
-#
-#     tech_btn = tk.Button(self.menu_frame, text="Technology", font=('Arial', 17), width=15, height=2)
-#     tech_btn.grid(row=0, column=2, sticky=tk.W + tk.E)
-#
-#     firms_btn = tk.Button(self.menu_frame, text="Firms", font=('Arial', 17), width=15, height=2)
-#     firms_btn.grid(row=0, column=3, sticky=tk.W + tk.E)
-#
-#     budget_btn = tk.Button(self.menu_frame, text="Budget", font=('Arial', 17), width=15, height=2)
-#     budget_btn.grid(row=0, column=4, sticky=tk.W + tk.E)
-#
-#     rgo_btn = tk.Button(self.menu_frame, text="Resource gathering", font=('Arial', 17), width=15, height=2)
-#     rgo_btn.grid(row=0, column=5, sticky=tk.W + tk.E)
-
 class HomePageScreen(Screen):
     def __init__(self):
         super().__init__()
@@ -199,32 +75,23 @@ class HomePageScreen(Screen):
     def click_scenario(self):
         pass
 
-    # def click_menu(self):
-    #     pass
-
     def click_prof(self):
         prof_screen = ProfileScreen("nhk", "C:/Users/colet/OneDrive/Desktop/flag_1.png", "12345", [12, 123, 1234, 123, 1234, 1234])
-        prof_screen.mainloop()
 
     def click_trade(self):
         trad_screen = TradeScreen([], [], [])
-        trad_screen.mainloop()
 
     def click_tech(self):
         tech_screen = TechnologyScreen()
-        tech_screen.mainloop()
 
     def click_prod(self):
         prod_screen = ProductionScreen()
-        prod_screen.mainloop()
 
     def click_budget(self):
         budg_screen = BudgetScreen("123", "456", "789")
-        budg_screen.mainloop()
 
     def click_resource(self):
         rgo_screen = ResourceGatheringScreen()
-        rgo_screen.mainloop()
 
 
 ### tested. ####
@@ -232,5 +99,5 @@ class HomePageScreen(Screen):
 ##### CHANGE SCREENSHOTS FOR MILESTONE 1
 ##### NO RESOURCE SCREEN
 ##### ALSO NO FIRMS. JUST TRADE, AND PRODUCTION. THEY ARE SEPARATED.
-try_home = HomePageScreen()
-try_home.mainloop()
+# try_home = HomePageScreen()
+# try_home.mainloop()

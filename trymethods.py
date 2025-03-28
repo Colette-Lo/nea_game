@@ -1,40 +1,6 @@
-# # import all classes/methods
-# # from the tkinter module
 import time
 from object_dictionaries import *
 import json
-#
-# # Global variables
-# active = False
-# period_duration = None
-# start_time = 0
-# total_periods = None
-# efficiency = 0.3
-# total_time = 60
-# total_collected = 0.0
-#
-# # Subroutines
-# def progress(amount):
-#       # total collected initially is 0
-        # total_collected = 0.0
-        # # calculating output that should be rewarded
-        # self.period_output = self.period_output * (1 + self.efficiency)
-        # # only check when not finished collecting
-        # if not self.finished:
-        #     # recording the current time
-        #     current = time.time()
-        #     # checking the amount of time passed
-        #     if (current - self.start_time) >= self.total_time:
-        #         # task is finished
-        #         self.finished = True
-        #         # return the amount earned
-        #         total_collected += self.period_output
-        #         return total_collected
-        # return total_collected
-# def click_collect():
-#     pass
-#
-# # Main
 
 class RGOManager():
     def __init__(self):
@@ -43,7 +9,11 @@ class RGOManager():
         # resource: {start_time, total_time, period_time, status, gathered, period_output, total_mat}
         self.operations = {
             "Coal": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Coal"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
-            "Oil": {}
+            "Oil": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Oil"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
+            "Crops": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Crops"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
+            "Metals": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Metals"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
+            "Timber": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Timber"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
+            "Wool": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Wool"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0}
         }
 
     # checking if operation is active

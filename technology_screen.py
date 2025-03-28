@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
-
+import time
+from tkinter import messagebox
 from screens import Screen
 
 project_tree = {
@@ -69,51 +70,96 @@ class TechnologyScreen(Screen):
 
 
 class ProjectTab(tk.Frame):
-    def __init__(self, master_notebook, proj_name, content, time_required, invested, children):
+    def __init__(self, master_notebook, proj_name, content, time_required, base_modifier, invested, initial_status):
         super().__init__()
 
         # add itself to the notebook
         master_notebook.add(self, text=proj_name)
 
         # attributes
+        self.notebook = master_notebook
+        self.proj_name = proj_name
         self.content = tk.Label(self, text=content, font=('Arial', 20))
         self.content.pack(padx=10, pady=10, anchor="w")
-
+        self.start_time = 0
         self.research_time = time_required
+        self.base_modifier = base_modifier
         self.invested = invested
-        self.children_proj = children
+        self.completed = False
+        self.is_unlocked = initial_status
+        self.child_proj = None
+        # self.has_parent = False
 
 
         # Research button
-        self.research_btn = tk.Button(self, text=("Research"), font=('Arial', 14))
+        self.research_btn = tk.Button(self, text=("Research"), font=('Arial', 14), command = self.research)
         self.research_btn.pack(padx=10, pady=10, anchor='s')
 
-    def cal_invested(self):
-        pass
+    def set_child(self, child):
+        self.child_proj = child
+        # child project is initially set to not visible
+        if self.child_proj is not None:
+            self.notebook.forget(self.child_proj)
 
-    def research(self, invested):
+    def unlock_child(self):
+        self.child_proj.is_unlocked = True
+        # Re-add the child tab
+        self.notebook.add(self.child_proj.tab, text=self.child_proj.proj_name)
+        print("Child project unlocked!")
+
+    def research(self):
+        if self.is_unlocked:
+            self.start_time = time.time()
+            self.completed = False
+            messagebox.showinfo("Status", "Research started")
+            print("Research started")
+        else:
+            messagebox.showwarning("Warning", "Project is locked.")
+            print("Project is locked")
         pass
 
     def is_completed(self):
-        pass
+        if self.start_time is None:
+            return False
+        time_passed = time.time() - self.start_time
+        if time_passed > self.research_time:
+            self.completed = True
+
+            if self.child_proj is not None:
+                self.unlock_child()
+            messagebox.showinfo("Status", "Research completed")
+            print("Research completed")
+        return self.completed
+
+    def get_effect(self):
+        if self.completed:
+            return self.base_modifier
+        else:
+            return 0
 
 
 # main
 tech_screen = TechnologyScreen()
 
 # 1st level
-p1 = ProjectTab(tech_screen.mech_notebook, "Agricultural Machinery", "this is the first project", 40, 0, "m")
-p2 = ProjectTab(tech_screen.infra_notebook, "Rural Road & Bridge Expansion", "this is the second project", 40, 0, "m")
-p3 = ProjectTab(tech_screen.chem_notebook, "Affordable Biofuel Production", "this is the third project", 40, 0, "m")
+mech_lvl1 = ProjectTab(tech_screen.mech_notebook, "Agricultural Machinery", "this is the first project", 40, 0.1, 0,  True)
+infra_lvl1 = ProjectTab(tech_screen.infra_notebook, "Rural Road & Bridge Expansion", "this is the second project", 40, 0.1,0,  True)
+chem_lvl = ProjectTab(tech_screen.chem_notebook, "Affordable Biofuel Production", "this is the third project", 40, 0.1,0,  True)
 
 # 2nd level
-p4 = ProjectTab(tech_screen.mech_notebook, "Semi-Automated Manufacturing Plants", "this is the 4th project", 40, 0, "m")
-p5 = ProjectTab(tech_screen.infra_notebook, "Smart Grid & Public Transit Upgrade", "this is the 5th project", 40, 0, "m")
-p6 = ProjectTab(tech_screen.chem_notebook, "Solar & Wind Energy", "this is the 6th project", 40, 0, "m")
+mech_lvl2 = ProjectTab(tech_screen.mech_notebook, "Semi-Automated Manufacturing Plants", "this is the 4th project", 40, 0.1,0,  False)
+infra_lvl2 = ProjectTab(tech_screen.infra_notebook, "Smart Grid & Public Transit Upgrade", "this is the 5th project", 40, 0.1,0,  False)
+chem_lvl2 = ProjectTab(tech_screen.chem_notebook, "Solar & Wind Energy", "this is the 6th project", 40, 0.1,0,  False)
 
 # 3rd level
+#project_list = [mech_lvl1, infra_lvl1, chem_lvl, mech_lvl2, infra_lvl2, chem_lvl2]
 
-project_list = [p1, p2, p3, p4, p5, p6]
+mech_lvl1.set_child(mech_lvl2)
+# mech_lvl2.set_child(mech_lvl3)
+infra_lvl1.set_child(infra_lvl2)
+# infra_lvl2.set_child(infra_lvl3)
+chem_lvl.set_child(chem_lvl2)
+# chem_lvl2.set_child(chem_lvl3)
 
 
 tech_screen.mainloop()

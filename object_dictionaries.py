@@ -9,7 +9,7 @@ materials = {"Coal": {"image_path": "C:/Users/colet/OneDrive/Desktop/rgo_metal_i
              "Crops": {"image_path": "C:/Users/colet/OneDrive/Desktop/rgo_metal_image.png",
                        "operation_time": 100,
                        "operation_efficiency": 0.9},
-             "Metal": {"image_path": "C:/Users/colet/OneDrive/Desktop/rgo_metal_image.png",
+             "Metals": {"image_path": "C:/Users/colet/OneDrive/Desktop/rgo_metal_image.png",
                             "operation_time": 30,
                             "operation_efficiency": 0.1},
              "Timber": {"image_path": "C:/Users/colet/OneDrive/Desktop/rgo_metal_image.png",

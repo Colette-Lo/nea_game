@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import PhotoImage, messagebox
 from PIL import Image, ImageTk
 
+from home_page import HomePageScreen
 from screens import Screen
 
 # # Initial country setup screen
@@ -220,6 +221,8 @@ class SetUpCountryScreen(Screen):
             self.show_error(new_name)
         else:
             self.destroy()
+            new_home = HomePageScreen()
+            new_home.mainloop()
             return [new_name, new_flag_object]
 
     def show_error(self, error_message):

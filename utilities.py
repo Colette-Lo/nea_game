@@ -4,7 +4,6 @@ import random
 from profile_screen import tryscreen
 from scenario_decision_screen import case_manager
 
-
 # reading data from a json file
 def load_values(file):
     with open(file, 'r') as open_json:
@@ -67,7 +66,7 @@ def choose_case(solved, event_list, case_graph, levels_list):
         last_event_name = solved[-1]
         last_case_level = find_case_level(event_list, last_event_name, levels_list)
         # current level
-        current_level = tryscreen.get_level()
+        current_level = tryscreen.level()
 
         # selecting the next event
         if last_case_level == current_level:
@@ -85,7 +84,7 @@ def choose_case(solved, event_list, case_graph, levels_list):
 # Testing section
 
 # Calls
-# print(done_real_case)
-# try_choose_next = choose_case(done_real_case, events_values, real_events_graph, levels)
-# print(try_choose_next)
-# # print(events_values)
+print(done_real_case)
+try_choose_next = choose_case(done_real_case, events_values, real_events_graph, levels)
+print(try_choose_next)
+# print(events_values)

@@ -1,0 +1,11 @@
+from start_screen import StartScreen
+from home_page import HomePageScreen
+from profile_screen import ProfileScreen
+from trade_screen import TradeScreen
+from technology_screen import TechnologyScreen
+from production_screen import ProductionScreen
+from budget_screen import BudgetScreen
+from resource_gathering_screen import ResourceGatheringScreen
+from scenario_decision_screen import ScenarioDecisionScreen
+
+new_start = StartScreen

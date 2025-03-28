@@ -5,23 +5,13 @@ from PIL import Image, ImageTk
 from screens import Screen
 
 # # Country profile
-class LevelManager():
-    def __init__(self):
-        # ADD TO REPORT
-        # determining the level of development
-        self.level = 1
-        self.gdp_value = tryscreen.values[-1]
-        self.change_level()
-
-        # ADD TO REPORT
-        # determining the level of development
-    def change_level(self):
-        if self.gdp_value <= 1135.0:
-            self.level = 1
-        elif 1135.0 < self.gdp_value <= 13845.0:
-            self.level = 2
-        else:
-            self.level = 3
+# class LevelManager():
+#     def __init__(self):
+#         # ADD TO REPORT
+#         # determining the level of development
+#
+#         self.gdp_value = tryscreen.values[-1]
+#         self.change_level()
 
 class ProfileScreen(Screen):
     def __init__(self, name, flag_path, population_size):
@@ -66,6 +56,18 @@ class ProfileScreen(Screen):
                                  bg="white"
                                  )
         self.pop_size.pack(padx = 10, pady = 10, anchor="w")
+
+        self.level = 1
+
+        # ADD TO REPORT
+        # determining the level of development
+    def change_level(self):
+        if self.values[5] <= 1135.0:
+            self.level = 1
+        elif 1135.0 < self.values[5] <= 13845.0:
+            self.level = 2
+        else:
+            self.level = 3
 
     # Display flag.
     # Need to add method to class diagram for ProfileScreen.
