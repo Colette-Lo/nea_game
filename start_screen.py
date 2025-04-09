@@ -45,13 +45,7 @@ class StartScreen(Screen):
 
     def load_save(self):
         self.destroy()
-        # setup_screen_object = my_screen_manager.get_screen_obj("my_setup")
-        # my_screen_manager.add_new("my_home", HomePageScreen(setup_screen_object.get_new_name(),
-        #                                                     setup_screen_object.get_new_flag()))
         self.next_screen = "my_home"
 
     def get_next_screen(self):
         return self.next_screen
-
-
-# my_screen_manager.add_new("my_setup", SetUpCountryScreen)
