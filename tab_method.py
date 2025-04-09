@@ -25,15 +25,3 @@ class CreateNotebook(ttk.Notebook):
                                                  padx=30,
                                                  pady=30
                                                  )
-
-    # def add_button_to_tab(self, tab_num, button_name, grid_column, grid_row):
-    #     ttk.Button(tab_num, text=button_name).grid(column=grid_column,
-    #                                            row=grid_row,
-    #                                            padx=30,
-    #                                            pady=30
-    #                                            )
-
-# make a treeview idk
-class CreateTab(Frame):
-    def __init__(self, master_notebook, name):
-        super().__init__()
