@@ -1,8 +1,5 @@
 # Product class
-from sys import intern
-
 from object_dictionaries import materials
-
 
 class Product:
     def __init__(self, name, base, supply):
@@ -85,6 +82,6 @@ hygiene = Good(name='Hygiene products', base=100, supply=100, base_demand=100000
 internet = Good(name='Internet', base=100, supply=100, base_demand=100000, tech="electricity")
 house_appliances = Good(name='Household appliances', base=100, supply=100, base_demand=100000, tech="electricity")
 
-good_list = [food, clothing, electronics, medicines, vehicles, books, furniture, hygiene, internet, house_appliances]
+good_list = [food.name, clothing.name, electronics.name, medicines.name, vehicles.name, books.name, furniture.name, hygiene.name, internet.name, house_appliances.name]
 prices = [food.price, clothing.price, electronics.price, medicines.price, vehicles.price, books.price, furniture.price, hygiene.price, internet.price, house_appliances.price]
 quantity_sold = [food.sold, clothing.sold, electronics.sold, medicines.sold, vehicles.sold, books.sold, furniture.sold, hygiene.sold, internet.sold, house_appliances.sold]

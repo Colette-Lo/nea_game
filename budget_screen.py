@@ -1,106 +1,33 @@
 import tkinter as tk
 from tkinter import Frame
-
 import matplotlib.pyplot as plt
 from screens import Screen
 import numpy as np
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
                                                NavigationToolbar2Tk)
+class BudgetCalculations():
+    def __init__(self, start_tax, start_spending, start_debt):
+        self.new_tax = start_tax
+        self.new_spending = start_spending
+        self.new_debt = start_debt
 
-#
-# # The screen where spending and income is displayed.
-# # Create window
-# window = tk.Tk()
-#
-# # Provide the resolution and title of the window.
-# window.geometry("1920x1080")
-# window.title("Country Simulation")
-#
-# # Show the heading
-# page_heading = tk.Label(window,
-#                         text="Budget",
-#                         font=('Arial', 30),
-#                         bg="white",
-#                         width=10,
-#                         height=2
-#                         )
-# page_heading.pack(padx=10, anchor='w')
-#
-# # Bar chart
-# # Chart dimensions
-# canvas_width = 600
-# canvas_height = 300
-# bar_width = 55
-# bar_spacing = 20
-# top_margin = 30
-#
-# # Create canvas
-# #def draw_chart(canvas, data):
-# canvas = tk.Canvas(window,
-#                    width=canvas_width,
-#                    height=canvas_height,
-#                    bg="white"
-#                    )
-# canvas.pack(side='left', fill='y')
-#
-# # need data to create bars.
-#
-# # Tax section label
-# tax_section =  tk.Label(window,
-#                         text="Tax:",
-#                         font=('Arial', 20),
-#                         bg="white",
-#                         width=50,
-#                         height=6
-#                         )
-# tax_section.pack(padx=10, pady=10)
-#
-# # Spending section label
-# spending_section =  tk.Label(window,
-#                         text="Spending:",
-#                         font=('Arial', 20),
-#                         bg="white",
-#                         width=50,
-#                         height=6
-#                         )
-# spending_section.pack(padx=10, pady=10)
-#
-# # National debt label
-# debt_lbl =  tk.Label(window,
-#                         text="National debt:",
-#                         font=('Arial', 20),
-#                         bg="white",
-#                         width=50,
-#                         height=2
-#                         )
-# debt_lbl.pack(padx=10, pady=10)
-#
-# # Education section label
-# education_lbl =  tk.Label(window,
-#                         text="Education spending (million):",
-#                         font=('Arial', 20),
-#                         bg="white",
-#                         width=50,
-#                         height=2
-#                         )
-# education_lbl.pack(padx=10, pady=10)
-#
-#
-# # Education spending input stepper
-# edu_spin = tk.Spinbox(window,
-#                       from_=0,
-#                       to=100,
-#                       font=('Arial', 20),
-#                       width=10
-#                       )
-# edu_spin.pack(padx=10, pady=10, anchor='s')
-#
-# window.mainloop()
-#
+    def cal_tax(self, modifier):
+        self.new_tax *= (1 + modifier)
+        return self.new_tax
+
+    def cal_spending(self, modifier):
+        self.new_spending *= (1 + modifier)
+        return self.new_spending
+
+    def cal_debt(self, modifier):
+        self.new_debt *= (1 + modifier)
+        return self.new_debt
+
+cal_budget = BudgetCalculations(100, 50, 0)
 
 class BudgetScreen(Screen):
-    def __init__(self, tax_rev, spending_value, debt_value):
+    def __init__(self):
         super().__init__()
         self.heading = tk.Label(self,
                                 text="Budget",
@@ -111,6 +38,9 @@ class BudgetScreen(Screen):
                                 )
         self.heading.pack(padx=20, anchor='w')
 
+        self.tax_value = cal_budget.new_tax
+        self.spending_value = cal_budget.new_spending
+        self.debt_value = cal_budget.new_debt
 
         # use a frame to contain everything other than the pie chart
         self.labels_frame = tk.Frame(self, borderwidth=5)
@@ -118,7 +48,7 @@ class BudgetScreen(Screen):
         # add spacing between rows to separate labels
 
         self.tax_section =  tk.Label(self.labels_frame,
-                                text=("Tax:", tax_rev),
+                                text=("Tax:", self.tax_value),
                                 font=('Arial', 20),
                                 bg="white",
                                 width=40,
@@ -127,7 +57,7 @@ class BudgetScreen(Screen):
         self.tax_section.grid(row=0, column=0, pady=10)
 
         self.spending_section =  tk.Label(self.labels_frame,
-                                text=("Spending:", spending_value),
+                                text=("Spending:", self.spending_value),
                                 font=('Arial', 20),
                                 bg="white",
                                 width=40,
@@ -136,7 +66,7 @@ class BudgetScreen(Screen):
         self.spending_section.grid(row=1, column=0, pady=10)
 
         self.debt_section =  tk.Label(self.labels_frame,
-                             text=("National debt:", debt_value),
+                             text=("National debt:", self.debt_value),
                              font=('Arial', 20),
                              bg="white",
                              width=40,
@@ -164,7 +94,7 @@ class BudgetScreen(Screen):
 
         # organising the two pieces of data using a list
         # for plotting the graph
-        self.pie_chart_data = [tax_rev, spending_value]
+        self.pie_chart_data = [self.tax_value, self.spending_value]
 
         # make a frame to hold the graph
         self.pie_frame = tk.Frame(self)
@@ -197,9 +127,3 @@ class BudgetScreen(Screen):
 
         # making sure the chart is up to date
         canvas.draw()
-
-    def stepper_change(self):
-        pass
-
-trybudget = BudgetScreen(30000, 100000, 20000)
-trybudget.mainloop()

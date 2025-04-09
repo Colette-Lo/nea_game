@@ -1,7 +1,11 @@
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
+from game_objects import good_list, prices, quantity_sold
 from screens import Screen
+from game_state import my_screen_manager
+from country_set_up_screen import *
+from scenario_decision_screen import load_scenario
 from profile_screen import ProfileScreen
 from trade_screen import TradeScreen
 from technology_screen import TechnologyScreen
@@ -10,12 +14,22 @@ from budget_screen import BudgetScreen
 from resource_gathering_screen import ResourceGatheringScreen
 
 class HomePageScreen(Screen):
-    def __init__(self):
+    def __init__(self, country_name, country_flag_path):
         super().__init__()
+
+        self.country_name = country_name
+        self.country_flag_path = country_flag_path
 
         # Using a frame as a menu bar.
         self.menu_frame = ttk.Frame(self)
         self.menu_frame.pack(side="top", fill="x", expand=False)
+
+        my_screen_manager.add_new("my_profile", ProfileScreen, self.country_flag_path, self.country_name, 10000)
+        my_screen_manager.add_new("my_trade", TradeScreen, good_list, prices, quantity_sold)
+        my_screen_manager.add_new("my_tech", TechnologyScreen)
+        my_screen_manager.add_new("my_prod", ProductionScreen)
+        my_screen_manager.add_new("my_budget", BudgetScreen)
+        my_screen_manager.add_new("my_resource", ResourceGatheringScreen)
 
         # Scenario button
         self.scenario_button = tk.Button(self,
@@ -27,16 +41,13 @@ class HomePageScreen(Screen):
                                          )
         self.scenario_button.pack(anchor="w")
 
-        #List of instances from each screen class.
-        # self.menu_items = ["Profile", "Trade", "Technology", "Production", "Budget", "Resource gathering"]
-        # self.show_menu()
-
         # Map image
         self.map_image_path = "C:/Users/colet/OneDrive/Desktop/game_map.png"
         self.map_opened = []
         self.show_map()
 
         self.var = tk.IntVar()
+
         # Menu buttons
         self.prof_btn = tk.Button(self.menu_frame, text="Profile", font=('Arial', 17), width=19, height=2, command=self.click_prof)
         self.prof_btn.grid(row=0, column=0)
@@ -62,42 +73,26 @@ class HomePageScreen(Screen):
 
         self.map_opened.append(map_file)
 
-        map_lbl = tk.Label(self, image=map_file)
+        map_lbl = tk.Label(self, image="C:/Users/colet/OneDrive/Desktop/game_map.png")
         map_lbl.pack(fill="x", expand=False)
 
-    # def make_menu_button(self, item, grid_num):
-    #     tk.Button(self.menu_frame, text=item, font=('Arial', 17), width=15, height=2).grid(row=0, column=grid_num)
-
-    # def show_menu(self):
-    #     for i in range(len(self.menu_items)):
-    #         self.make_menu_button(self.menu_items[i], i)
-
     def click_scenario(self):
-        pass
+        load_scenario()
 
     def click_prof(self):
-        prof_screen = ProfileScreen("nhk", "C:/Users/colet/OneDrive/Desktop/flag_1.png", "12345", [12, 123, 1234, 123, 1234, 1234])
+        my_screen_manager.load_screen("my_profile")
 
     def click_trade(self):
-        trad_screen = TradeScreen([], [], [])
+        my_screen_manager.load_screen("my_trade")
 
     def click_tech(self):
-        tech_screen = TechnologyScreen()
+        my_screen_manager.load_screen("my_tech")
 
     def click_prod(self):
-        prod_screen = ProductionScreen()
+        my_screen_manager.load_screen("my_prod")
 
     def click_budget(self):
-        budg_screen = BudgetScreen("123", "456", "789")
+        my_screen_manager.load_screen("my_budget")
 
     def click_resource(self):
-        rgo_screen = ResourceGatheringScreen()
-
-
-### tested. ####
-## made an alternative method for the menu bar just in case ##
-##### CHANGE SCREENSHOTS FOR MILESTONE 1
-##### NO RESOURCE SCREEN
-##### ALSO NO FIRMS. JUST TRADE, AND PRODUCTION. THEY ARE SEPARATED.
-# try_home = HomePageScreen()
-# try_home.mainloop()
+        my_screen_manager.load_screen("my_resource")

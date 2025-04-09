@@ -4,15 +4,6 @@ from tkinter import PhotoImage
 from PIL import Image, ImageTk
 from screens import Screen
 
-# # Country profile
-# class LevelManager():
-#     def __init__(self):
-#         # ADD TO REPORT
-#         # determining the level of development
-#
-#         self.gdp_value = tryscreen.values[-1]
-#         self.change_level()
-
 class ProfileScreen(Screen):
     def __init__(self, name, flag_path, population_size):
         super().__init__()
@@ -50,8 +41,9 @@ class ProfileScreen(Screen):
         self.country_name.pack(padx = 10, pady = 10, anchor="w")
 
         # population
+        self.population = population_size
         self.pop_size =  tk.Label(self,
-                                 text="Population: " + population_size,
+                                 text="Population: " + self.population,
                                  font=('Arial', 40),
                                  bg="white"
                                  )
@@ -59,8 +51,6 @@ class ProfileScreen(Screen):
 
         self.level = 1
 
-        # ADD TO REPORT
-        # determining the level of development
     def change_level(self):
         if self.values[5] <= 1135.0:
             self.level = 1
@@ -91,6 +81,8 @@ class ProfileScreen(Screen):
         for i in range(6):
             self.ind_table.insert(parent = '', index = 0, values = (self.indicators[i], self.values[i]))
 
+    def cal_population(self, modifier):
+        self.population = self.population * (1+modifier)
 
     def cal_gdp(self, scale):
         # the limit for GDP is >0
@@ -182,8 +174,3 @@ class ProfileScreen(Screen):
                 self.values[0] = 0.5
         # a print statement for testing
         # print("Life expectancy:", self.values[0])
-
-# , [12, 123, 1234, 123, 1234, 1234]
-tryscreen = ProfileScreen("nhk", "C:/Users/colet/OneDrive/Desktop/flag_1.png", "12345")
-
-tryscreen.mainloop()

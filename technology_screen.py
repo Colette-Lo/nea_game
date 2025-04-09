@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 import time
 from tkinter import messagebox
+
+from game_state import my_screen_manager
 from screens import Screen
 
 project_tree = {
@@ -71,7 +73,7 @@ class TechnologyScreen(Screen):
 
 class ProjectTab(tk.Frame):
     def __init__(self, master_notebook, proj_name, content, time_required, base_modifier, invested, initial_status):
-        super().__init__()
+        super().__init__(master_notebook)
 
         # add itself to the notebook
         master_notebook.add(self, text=proj_name)
@@ -89,6 +91,7 @@ class ProjectTab(tk.Frame):
         self.is_unlocked = initial_status
         self.child_proj = None
         # self.has_parent = False
+
 
 
         # Research button
@@ -139,27 +142,28 @@ class ProjectTab(tk.Frame):
 
 
 # main
-tech_screen = TechnologyScreen()
 
+my_screen_manager.add_new("my_tech", TechnologyScreen)
+tech_screen_obj = my_screen_manager.get_screen_obj("my_tech")
 # 1st level
-mech_lvl1 = ProjectTab(tech_screen.mech_notebook, "Agricultural Machinery", "this is the first project", 40, 0.1, 0,  True)
-infra_lvl1 = ProjectTab(tech_screen.infra_notebook, "Rural Road & Bridge Expansion", "this is the second project", 40, 0.1,0,  True)
-chem_lvl = ProjectTab(tech_screen.chem_notebook, "Affordable Biofuel Production", "this is the third project", 40, 0.1,0,  True)
+mech_lvl1 = ProjectTab(tech_screen_obj.mech_notebook, "Agricultural Machinery", "this is the first project", 40, 0.1, 0,  True)
+infra_lvl1 = ProjectTab(tech_screen_obj.infra_notebook, "Rural Road & Bridge Expansion", "this is the second project", 40, 0.1,0,  True)
+chem_lvl = ProjectTab(tech_screen_obj.chem_notebook, "Affordable Biofuel Production", "this is the third project", 40, 0.1,0,  True)
 
 # 2nd level
-mech_lvl2 = ProjectTab(tech_screen.mech_notebook, "Semi-Automated Manufacturing Plants", "this is the 4th project", 40, 0.1,0,  False)
-infra_lvl2 = ProjectTab(tech_screen.infra_notebook, "Smart Grid & Public Transit Upgrade", "this is the 5th project", 40, 0.1,0,  False)
-chem_lvl2 = ProjectTab(tech_screen.chem_notebook, "Solar & Wind Energy", "this is the 6th project", 40, 0.1,0,  False)
+mech_lvl2 = ProjectTab(tech_screen_obj.mech_notebook, "Semi-Automated Manufacturing Plants", "this is the 4th project", 40, 0.1,0,  False)
+infra_lvl2 = ProjectTab(tech_screen_obj.infra_notebook, "Smart Grid & Public Transit Upgrade", "this is the 5th project", 40, 0.1,0,  False)
+chem_lvl2 = ProjectTab(tech_screen_obj.chem_notebook, "Solar & Wind Energy", "this is the 6th project", 40, 0.1,0,  False)
 
 # 3rd level
+mech_lvl3 = ProjectTab(tech_screen_obj.mech_notebook, "Robotics & AI-Driven Factories", "this is the 7th project", 40, 0.1,0, False)
+infra_lvl3 = ProjectTab(tech_screen_obj.infra_notebook, "Smart Cities", "this is the 8th project", 40, 0.1,0, False)
+chem_lvl3 = ProjectTab(tech_screen_obj.chem_notebook, "Carbon Capture & Sustainable Synthetic Fuels", "this is the 9th project", 40, 0.1,0, False)
 #project_list = [mech_lvl1, infra_lvl1, chem_lvl, mech_lvl2, infra_lvl2, chem_lvl2]
 
 mech_lvl1.set_child(mech_lvl2)
-# mech_lvl2.set_child(mech_lvl3)
+mech_lvl2.set_child(mech_lvl3)
 infra_lvl1.set_child(infra_lvl2)
-# infra_lvl2.set_child(infra_lvl3)
+infra_lvl2.set_child(infra_lvl3)
 chem_lvl.set_child(chem_lvl2)
-# chem_lvl2.set_child(chem_lvl3)
-
-
-tech_screen.mainloop()
+chem_lvl2.set_child(chem_lvl3)

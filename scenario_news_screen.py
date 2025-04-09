@@ -6,7 +6,7 @@ from tab_method import CreateNotebook
 # # News screen to show the effect of the policy chosen.
 
 class ScenarioNewsScreen(Screen):
-    def __init__(self):
+    def __init__(self, news1, news2):
         super().__init__()
         self.heading = tk.Label(self,
                                 text="News",
@@ -19,12 +19,9 @@ class ScenarioNewsScreen(Screen):
 
         self.geometry("700x500")
 
-        self.news_lists = []
-        # this list will be filled with all the news for all possible scenarios.
+        self.news_lists = [news1, news2]
 
-        self.trynote = CreateNotebook()
-        self.trynote.add_tab('news1', "Example title", "Example content")
-        self.trynote.add_tab('news2', 'hi', "idk")
+        self.my_note = CreateNotebook()
+        self.my_note.add_tab('news1', "News 1", news1)
+        self.my_note.add_tab('news2', 'News 2', news2)
 
-trynewsscreen = ScenarioNewsScreen()
-trynewsscreen.mainloop()

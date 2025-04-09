@@ -2,110 +2,9 @@ import tkinter as tk
 from tkinter import PhotoImage, messagebox
 from PIL import Image, ImageTk
 
-from home_page import HomePageScreen
 from screens import Screen
-
-# # Initial country setup screen
-# # Create the window
-# window = tk.Tk()
-#
-# # Provide the resolution and title of the window.
-# window.geometry("1920x1080")
-# window.title("Country Simulation")
-#
-# # Show the heading
-# page_heading = tk.Label(window,
-#                         text="Set up your country",
-#                         font=('Arial', 30),
-#                         bg="white",
-#                         width=20,
-#                         height=2
-#                         )
-# page_heading.pack(padx=10, pady=50)
-#
-# # Label the text box for inputting the name of the country.
-# name_heading =  tk.Label(window,
-#                          text="Name:",
-#                          font=('Arial', 20)
-#                          )
-# name_heading.pack(padx=10, pady=10, anchor="w")
-#
-# # The text box
-# name_tb = tk.Text(window,
-#                   height=1,
-#                   width=30,
-#                   font=('Arial', 30)
-#                   )
-# name_tb.pack(padx=10, pady=40, anchor="w")
-#
-# # Label section where the player chooses the flag.
-# flag_heading =  tk.Label(window,
-#                          text="Flag:",
-#                          font=('Arial', 20)
-#                          )
-# flag_heading.pack(padx=10, pady=10, anchor="w")
-#
-# # Importing images
-# # Flag 1
-# button1 = tk.Radiobutton(window,
-#                          text="Flag 1",
-#                          font=('Arial', 20))
-# button1.pack(padx=10, side="left")
-#
-# open_flag1 = Image.open("C:/Users/colet/OneDrive/Desktop/flag_1.png")
-# flag1_photo = ImageTk.PhotoImage(open_flag1)
-# flag1_lbl = tk.Label(window, image = flag1_photo)
-# flag1_lbl.pack(padx=10, side="left")
-#
-# # Flag 2
-# button2 = tk.Radiobutton(window,
-#                           text="Flag 2",
-#                           font=('Arial', 20))
-# button2.pack(padx=10, side="left")
-#
-# open_flag2 = Image.open("C:/Users/colet/OneDrive/Desktop/flag_2.png")
-# flag2_photo = ImageTk.PhotoImage(open_flag2)
-# flag2_lbl = tk.Label(window, image = flag2_photo)
-# flag2_lbl.pack(padx=10, side="left")
-#
-# # Flag 3
-# button3 = tk.Radiobutton(window,
-#                          text="Flag 3",
-#                          font=('Arial', 20))
-# button3.pack(padx=10, side="left")
-#
-# open_flag3 = Image.open("C:/Users/colet/OneDrive/Desktop/flag_3.png")
-# flag3_photo = ImageTk.PhotoImage(open_flag3)
-# flag3_lbl = tk.Label(window, image = flag3_photo)
-# flag3_lbl.pack(padx=10, pady=10, side="left")
-#
-# window.mainloop()
-#
-
-
-# for i in range(len(self.list_of_flags)):
-        #     # Open image
-        #     open_flag = Image.open(self.list_of_flags[i][1])
-        #     flag_photo = ImageTk.PhotoImage(open_flag)
-        #
-        #     # Store image permanently.
-        #     self.image_reference.append(flag_photo)
-        #
-        #     # when the radiobutton is turned on by the player, variable is set to the current value option.
-        #     # value can be returned in chose_flag().
-        #     # use as the index of the flag in list of flags.
-        #     # result: does not work.
-        #
-        #     # radio_btn = tk.Radiobutton(self,
-        #     #                            text=self.radio_buttons[i],
-        #     #                            font=('Arial', 20)
-        #     #                            )
-        #     # radio_btn.pack(padx=10, side="left")
-        #
-        #     ## label for the images
-        #     flag_lbl = tk.Label(self, image=flag_photo)
-        #     flag_lbl.pack(padx=10, side="left")
-
+from game_state import my_screen_manager
+from home_page import HomePageScreen
 
 class SetUpCountryScreen(Screen):
     def __init__(self):
@@ -120,6 +19,10 @@ class SetUpCountryScreen(Screen):
                                 height=2
                                 )
         self.heading.pack(padx=10, pady=50)
+
+        self.new_name = ""
+        self.new_flag = ""
+        self.valid_inputs = False
 
         # Name label
         self.name_heading = tk.Label(self, text="Name: ", font=('Arial', 20))
@@ -137,9 +40,9 @@ class SetUpCountryScreen(Screen):
         self.save_button = tk.Button(self, text="Save", font=('Arial', 20), command=self.save_choice)
 
         # paths
-        self.flag_1 = "C:/Users/colet/OneDrive/Desktop/flag_1.png"
-        self.flag_2 = "C:/Users/colet/OneDrive/Desktop/flag_2.png"
-        self.flag_3 = "C:/Users/colet/OneDrive/Desktop/flag_3.png"
+        self.flag_1 = "C:/Users\colet\OneDrive\Desktop\Computer science/NEA/flag_3.png"
+        self.flag_2 = "C:/Users\colet\OneDrive\Desktop\Computer science/NEA/flag_3.png"
+        self.flag_3 = "C:/Users\colet\OneDrive\Desktop\Computer science/NEA/flag_3.png"
 
         self.var = tk.IntVar()
         # Flag 1
@@ -215,15 +118,30 @@ class SetUpCountryScreen(Screen):
 
     # don't close unless all valid
     def save_choice(self):
-        new_name = self.set_name()
-        new_flag_object = self.chose_flag()
-        if new_name == "Invalid name: name should only have alphabets.":
-            self.show_error(new_name)
+        self.new_name = self.set_name()
+        self.new_flag = self.chose_flag()
+        if self.new_name == "Invalid name: name should only have alphabets.":
+            self.show_error(self.new_name)
         else:
             self.destroy()
-            new_home = HomePageScreen()
-            new_home.mainloop()
-            return [new_name, new_flag_object]
+            self.valid_inputs = True
+            setup_screen_object = my_screen_manager.get_screen_obj("my_setup")
+            my_screen_manager.add_new("my_home", HomePageScreen(setup_screen_object.get_new_name(),
+                                                                setup_screen_object.get_new_flag()))
+            my_screen_manager.load_screen("my_home")
+
 
     def show_error(self, error_message):
         messagebox.showerror("Error", error_message)
+
+    def get_new_name(self):
+        if self.valid_inputs:
+            return self.new_name
+        else:
+            return ""
+
+    def get_new_flag(self):
+        if self.valid_inputs:
+            return self.new_flag
+        else:
+            return ""

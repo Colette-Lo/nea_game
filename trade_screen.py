@@ -33,6 +33,3 @@ class TradeScreen(Screen):
                               index = 0,
                               values = (product, price, sold)
                               )
-
-new_trade_screen = TradeScreen(good_list, prices, quantity_sold)
-new_trade_screen.mainloop()
