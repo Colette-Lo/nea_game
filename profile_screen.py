@@ -60,7 +60,6 @@ class ProfileScreen(Screen):
             self.level = 3
 
     # Display flag.
-    # Need to add method to class diagram for ProfileScreen.
     def show_flag(self):
         open_flag = Image.open(self.flag_image_path)
         flag_file = ImageTk.PhotoImage(open_flag)
@@ -69,7 +68,7 @@ class ProfileScreen(Screen):
 
         flag_lbl = tk.Label(self, image=flag_file, width = 400, height = 400)
         flag_lbl.pack(expand=False, anchor="w")
-    ## have not tested ##
+
 
     def insert_values(self):
         self.ind_table.heading('Indicators', text='Indicators')

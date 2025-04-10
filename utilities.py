@@ -90,14 +90,19 @@ class RGOManager():
     def __init__(self):
 
         # dictionary of all the operation
-        # resource: {start_time, total_time, period_time, status, gathered, period_output, total_mat}
         self.operations = {
-            "Coal": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Coal"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
-            "Oil": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Oil"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
-            "Crops": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Crops"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
-            "Metals": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Metals"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
-            "Timber": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Timber"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
-            "Wool": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Wool"]["operation_time"], "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0}
+            "Coal": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Coal"]["operation_time"],
+                     "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
+            "Oil": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Oil"]["operation_time"],
+                    "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
+            "Crops": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Crops"]["operation_time"],
+                      "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
+            "Metals": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Metals"]["operation_time"],
+                       "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
+            "Timber": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Timber"]["operation_time"],
+                       "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0},
+            "Wool": {"status": False, "collectable": False, "start_time": 0.0, "total_time": materials["Wool"]["operation_time"],
+                     "period_time": 0.0, "period_output": 0.0, "period_count": 0, "current_gathered": 0.0, "total_mat": 0.0}
         }
 
     # checking if operation is active

@@ -1,4 +1,5 @@
 import tkinter as tk
+from bdb import effective
 from tkinter import ttk
 from tkinter import PhotoImage
 from PIL import Image, ImageTk
@@ -40,15 +41,12 @@ class ProductionTab(tk.Frame):
         self.nearby_resources = []
         self.tech_list = []
 
-        # Displaying the image immediately
-        # self.show_material()
-
         tk.Label(self, text="Product: " + self.product, font=('Arial', 20)).pack(padx=10, pady=10, anchor="w")
         tk.Label(self, text="Location: " + self.location, font=('Arial', 20)).pack(padx=10, pady=10, anchor="w")
         tk.Label(self, text="Efficiency: " + str(self.efficiency), font=('Arial', 20)).pack(padx=10, pady=10,anchor="w")
         tk.Label(self, text="Output: " + str(self.firm_output), font=('Arial', 20)).pack(padx=10, pady=10, anchor="w")
 
-    # def show_material(self):
+        # Displaying the image immediately
         try:
             self.open_product_img = Image.open(self.image_path)
             self.product_file = ImageTk.PhotoImage(self.open_product_img)
@@ -61,26 +59,23 @@ class ProductionTab(tk.Frame):
             print("Couldn't open image", e)
 
     def unit_cost_change(self):
-        pass
+        self.unit_cost *= (1+self.efficiency)
 
-    def adjust_efficiency(self):
-        pass
-
-    def marginal_cost(self, unit_cost, quantity):
-        pass
+    def adjust_efficiency(self, modifier):
+        self.efficiency *= (1+modifier)
 
     def profit_max_quantity(self, price):
         pm_quantity = 0
 
-        while self.marginal_cost < price:
+        while self.unit_cost < price:
             pm_quantity += 1
         return pm_quantity
 
-    def total_cost(self, quantity, unit_cost):
-        pass
+    def total_cost(self, quantity):
+        return (quantity * self.unit_cost)
 
 # main
-# my_screen_manager.get_screen_obj("my_prod")
+
 my_screen_manager.add_new("my_prod", ProductionScreen)
 prod_screen_object = my_screen_manager.get_screen_obj("my_prod")
 # low income stage
